@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ollo | User Portfolio</title>
+  <meta name="description" content="Ollo Trading Terminal — User Portfolio overview, perpetual futures, spot exchange, earn, and prediction markets.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="portfolio.css?v=6">
+  <script src="https://unpkg.com/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="menu-toggle">☰</button>
+      <span class="logo">ollo</span>
+    </div>
+    <div class="topbar-center">
+      <div class="search-bar">
+        <span class="icon">🔍</span>
+        <input type="text" placeholder="Search markets...">
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button class="icon-btn">✧</button>
+      <button class="icon-btn">+</button>
+      <button class="icon-btn">▤</button>
+      <button class="icon-btn">↻</button>
+      <button class="icon-btn">☼</button>
+      <button class="icon-btn">⚲</button>
+      <button class="btn-signin">• Sign In</button>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-container portfolio-layout">
+    
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <ul class="nav-menu">
+        <li><a href="index.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 8px; width: 100%;"><span class="icon">⊞</span> Dashboard</a></li>
+        <li class="active"><span class="icon">▤</span> User Portfolio</li>
+        <li><span class="icon">⚲</span> Analytics</li>
+        <li><span class="icon">✧</span> Community</li>
+        <li><span class="icon">≡</span> Documentation</li>
+      </ul>
+      
+      <div class="sidebar-section">
+        <div class="section-title">Layout <span class="arrow">▾</span></div>
+        <ul class="sub-menu">
+          <li class="collapsible"><span class="arrow">›</span> Favorites</li>
+          <li class="collapsible active"><span class="arrow">▾</span> Default</li>
+          <ul class="nested-menu">
+            <li class="menu-label">EARN</li>
+            <li><span class="icon">○</span> Passive Yield <span class="star">★</span></li>
+            <li class="menu-label">CONVERT</li>
+            <li><span class="icon">○</span> Currency Exchange <span class="star">★</span></li>
+            <li class="menu-label">TRADE</li>
+            <li><span class="icon">○</span> Perpetual Futures <span class="star">★</span></li>
+            <li><span class="icon">○</span> Prediction Markets <span class="star">★</span></li>
+            <li><span class="icon">○</span> Currency Swaps <span class="star">★</span></li>
+          </ul>
+          <li class="collapsible"><span class="arrow">›</span> Custom</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="section-title">User Interface Explorer</div>
+        <div class="explorer-card">
+          <span class="label">All</span>
+          <p class="explorer-desc">Shows all curated crypto news articles across every category.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Portfolio Area -->
+    <div class="portfolio-wrapper">
+      
+      <div class="portfolio-header-row">
+        <h1 class="portfolio-title">Portfolio</h1>
+      </div>
+      <div class="portfolio-tabs">
+        <span class="tab active" data-tab="overview">Overview</span>
+        <span class="tab" data-tab="perps">Perpetual Futures</span>
+        <span class="tab" data-tab="spot">Spot Exchange</span>
+        <span class="tab" data-tab="earn">Earn</span>
+        <span class="tab" data-tab="predictions">Prediction Markets</span>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- Overview Tab -->
+      <!-- ========================================== -->
+      <div class="tab-pane active" id="pane-overview">
+        <div class="widget portfolio-hero">
+          <div class="hero-metrics">
+            <div class="metric-block">
+              <span class="metric-label">Total Portfolio Value</span>
+              <span class="metric-value">$8,420,508.90</span>
+              <span class="up" style="font-size: 10px; font-weight: 500; margin-top: 2px;">+$24,100.00 (+0.29%) 24H</span>
+            </div>
+            
+            <div class="metric-block" style="margin-top: auto;">
+              <span class="metric-label">Unrealized PnL</span>
+              <span class="metric-value small up">+$55,269.60</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">Realized PnL (YTD)</span>
+              <span class="metric-value small up">+$1,252,100.50</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">24H Volume</span>
+              <span class="metric-value small">$2,840,000.00</span>
+            </div>
+          </div>
+          
+          <div class="hero-chart-area">
+            <div class="chart-overlay-controls" style="justify-content: flex-end;">
+              <div class="chart-controls-group">
+                <span>1D</span><span class="active">1W</span><span>1M</span><span>YTD</span><span>ALL</span>
+              </div>
+            </div>
+            <div id="chart-overview" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="widget">
+            <div class="widget-header">
+              <span class="pair-title">Product Allocation</span>
+            </div>
+            <div style="padding: 8px;">
+              <table class="data-table">
+                <tbody>
+                  <tr>
+                    <td>Perpetual Futures</td>
+                    <td class="right">$5,071,260.30</td>
+                    <td class="right">60.2%</td>
+                  </tr>
+                  <tr>
+                    <td>Spot Exchange</td>
+                    <td class="right">$2,535,630.15</td>
+                    <td class="right">30.1%</td>
+                  </tr>
+                  <tr>
+                    <td>Earn</td>
+                    <td class="right">$676,168.04</td>
+                    <td class="right">8.0%</td>
+                  </tr>
+                  <tr>
+                    <td>Prediction Markets</td>
+                    <td class="right">$137,450.41</td>
+                    <td class="right">1.6%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="alloc-bar">
+                <div style="width: 60.2%; background: #fff;"></div>
+                <div style="width: 30.1%; background: var(--text-muted);"></div>
+                <div style="width: 8.0%; background: var(--text-dim);"></div>
+                <div style="width: 1.6%; background: var(--border-color);"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget">
+            <div class="widget-header">
+              <span class="pair-title">Margin Health</span>
+            </div>
+            <div style="padding: 8px; display: flex; flex-direction: column; gap: 12px;">
+              <div class="metric-block">
+                <span class="metric-label">Account Margin Ratio <span class="tooltip-icon" data-tooltip="Total account margin across all cross-collateral types">?</span></span>
+                <span class="metric-value medium">18.4%</span>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 18.4%; background: var(--color-up);"></div>
+                </div>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <div class="metric-block">
+                  <span class="metric-label">Maintenance Margin</span>
+                  <span class="metric-value small">$933,111.00</span>
+                </div>
+                <div class="metric-block" style="text-align: right;">
+                  <span class="metric-label">Available Margin</span>
+                  <span class="metric-value small">$4,138,149.30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="pair-title">Recent Activity</span>
+            <div class="widget-controls"><span>View All</span></div>
+          </div>
+          <div class="activity-feed">
+            <div class="activity-item">
+              <span class="activity-type">TRADE</span>
+              <span class="activity-desc">Opened Long EUR/USD-PERP — €10,000,000 notional</span>
+              <span class="activity-time">2h ago</span>
+            </div>
+            <div class="activity-item">
+              <span class="activity-type earn">EARN</span>
+              <span class="activity-desc">Claimed $312.50 yield from USDC Delta Neutral Base</span>
+              <span class="activity-time">6h ago</span>
+            </div>
+            <div class="activity-item">
+              <span class="activity-type swap">SWAP</span>
+              <span class="activity-desc">Swapped 50,000 USDT → 50,010 USDC</span>
+              <span class="activity-time">1d ago</span>
+            </div>
+            <div class="activity-item">
+              <span class="activity-type predict">PREDICT</span>
+              <span class="activity-desc">Bought 100,000 shares YES on "ECB Rate Cut in July 2026"</span>
+              <span class="activity-time">2d ago</span>
+            </div>
+            <div class="activity-item">
+              <span class="activity-type">TRADE</span>
+              <span class="activity-desc">Closed Short AUD/USD-PERP — Realized PnL -$24,000</span>
+              <span class="activity-time">3d ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- Perpetual Futures Tab -->
+      <!-- ========================================== -->
+      <div class="tab-pane" id="pane-perps">
+        <div class="widget portfolio-hero" style="min-height: 300px;">
+          <div class="hero-metrics">
+            <div class="metric-block">
+              <span class="metric-label">Perpetuals Equity</span>
+              <span class="metric-value">$5,071,260.30</span>
+              <span class="up" style="font-size: 10px; font-weight: 500; margin-top: 2px;">+$18,400.00 (+0.36%) 24H</span>
+            </div>
+            
+            <div class="metric-block" style="margin-top: auto;">
+              <span class="metric-label">Unrealized PnL</span>
+              <span class="metric-value small up">+$43,678.00</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">Realized PnL (30D)</span>
+              <span class="metric-value small up">+$182,500.00</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">Effective Leverage <span class="tooltip-icon" data-tooltip="Total position notional divided by account equity">?</span></span>
+              <span class="metric-value small">4.2x</span>
+            </div>
+          </div>
+          
+          <div class="hero-chart-area">
+            <div class="chart-overlay-controls">
+              <div class="chart-controls-group">
+                <span class="active">Cumulative PnL</span><span>Daily PnL</span>
+              </div>
+              <div class="chart-controls-group">
+                <span>1D</span><span class="active">1W</span><span>1M</span><span>YTD</span><span>ALL</span>
+              </div>
+            </div>
+            <div id="chart-perps" class="chart-container"></div>
+          </div>
+        </div>
+
+        <!-- Open Positions -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="pair-title">Open Positions</span>
+            <div class="widget-controls"><span class="close">✕</span></div>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Market</th>
+                <th>Side</th>
+                <th class="right">Notional</th>
+                <th class="right">Entry</th>
+                <th class="right">Mark</th>
+                <th class="right">Liq. Price</th>
+                <th class="right">TP / SL</th>
+                <th class="right">Margin</th>
+                <th class="right">Unrealized PnL</th>
+                <th class="right">ROE%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>EUR/USD-PERP</td>
+                <td class="up">Long</td>
+                <td class="right">€10,000,000</td>
+                <td class="right">1.08500</td>
+                <td class="right">1.08720</td>
+                <td class="right down">1.06200</td>
+                <td class="right">1.09500 / 1.07200</td>
+                <td class="right">$2,170,000</td>
+                <td class="right up">+$22,000.00</td>
+                <td class="right up">+1.01%</td>
+              </tr>
+              <tr>
+                <td>USD/JPY-PERP</td>
+                <td class="down">Short</td>
+                <td class="right">$5,000,000</td>
+                <td class="right">150.200</td>
+                <td class="right">149.850</td>
+                <td class="right down">154.500</td>
+                <td class="right">148.000 / 152.800</td>
+                <td class="right">$1,250,000</td>
+                <td class="right up">+$11,678.00</td>
+                <td class="right up">+0.93%</td>
+              </tr>
+              <tr>
+                <td>GBP/USD-PERP</td>
+                <td class="up">Long</td>
+                <td class="right">£2,500,000</td>
+                <td class="right">1.26400</td>
+                <td class="right">1.26800</td>
+                <td class="right down">1.22100</td>
+                <td class="right">1.28000 / 1.24500</td>
+                <td class="right">$790,000</td>
+                <td class="right up">+$10,000.00</td>
+                <td class="right up">+1.27%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Open Orders -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="pair-title">Open Orders</span>
+            <div class="widget-controls"><span class="close">✕</span></div>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Market</th>
+                <th>Side</th>
+                <th>Type</th>
+                <th class="right">Price</th>
+                <th class="right">Size</th>
+                <th class="right">Filled</th>
+                <th class="right">Placed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>EUR/USD-PERP</td>
+                <td class="up">Buy</td>
+                <td>Limit</td>
+                <td class="right">1.08200</td>
+                <td class="right">€5,000,000</td>
+                <td class="right">0%</td>
+                <td class="right">Jun 14, 09:30</td>
+              </tr>
+              <tr>
+                <td>USD/CHF-PERP</td>
+                <td class="down">Sell</td>
+                <td>Stop Limit</td>
+                <td class="right">0.89500</td>
+                <td class="right">$2,000,000</td>
+                <td class="right">0%</td>
+                <td class="right">Jun 13, 14:15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="widget">
+            <div class="widget-header">
+              <span class="pair-title">Trade Analytics (YTD)</span>
+            </div>
+            <div style="padding: 8px;">
+              <table class="data-table">
+                <tbody>
+                  <tr>
+                    <td>Win Rate</td>
+                    <td class="right">62.4%</td>
+                  </tr>
+                  <tr>
+                    <td>Profit Factor <span class="tooltip-icon" data-tooltip="Gross profit divided by gross loss. >1 is profitable.">?</span></td>
+                    <td class="right">1.85</td>
+                  </tr>
+                  <tr>
+                    <td>Sharpe Ratio <span class="tooltip-icon" data-tooltip="Risk-adjusted return. >1 is good, >2 is excellent.">?</span></td>
+                    <td class="right">1.42</td>
+                  </tr>
+                  <tr>
+                    <td>Max Drawdown <span class="tooltip-icon" data-tooltip="Largest peak-to-trough drop in account equity">?</span></td>
+                    <td class="right down">-8.2%</td>
+                  </tr>
+                  <tr>
+                    <td>Total Trades</td>
+                    <td class="right">1,204</td>
+                  </tr>
+                  <tr>
+                    <td>Avg Hold Time</td>
+                    <td class="right">4.2 days</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="widget">
+            <div class="widget-header">
+              <span class="pair-title">Performance Attribution by Market</span>
+            </div>
+            <div style="padding: 8px;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Market</th>
+                    <th class="right">Realized PnL</th>
+                    <th class="right">% of Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>EUR/USD</td>
+                    <td class="right up">+$640,200</td>
+                    <td class="right">51.1%</td>
+                  </tr>
+                  <tr>
+                    <td>GBP/USD</td>
+                    <td class="right up">+$420,100</td>
+                    <td class="right">33.5%</td>
+                  </tr>
+                  <tr>
+                    <td>USD/JPY</td>
+                    <td class="right up">+$215,800</td>
+                    <td class="right">17.2%</td>
+                  </tr>
+                  <tr>
+                    <td>AUD/USD</td>
+                    <td class="right down">-$24,000</td>
+                    <td class="right">-1.8%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Funding Payments -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="pair-title">Funding Payments (7D)</span>
+          </div>
+          <div style="padding: 8px;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Market</th>
+                  <th class="right">Current Rate</th>
+                  <th class="right">7D Net</th>
+                  <th class="right">Next Payment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>EUR/USD-PERP</td>
+                  <td class="right">+0.0024%</td>
+                  <td class="right down">-$1,680.00</td>
+                  <td class="right">in 4h 12m</td>
+                </tr>
+                <tr>
+                  <td>USD/JPY-PERP</td>
+                  <td class="right">-0.0018%</td>
+                  <td class="right up">+$630.00</td>
+                  <td class="right">in 4h 12m</td>
+                </tr>
+                <tr>
+                  <td>GBP/USD-PERP</td>
+                  <td class="right">+0.0010%</td>
+                  <td class="right down">-$175.00</td>
+                  <td class="right">in 4h 12m</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="border-top: 1px solid var(--border-color);">
+                  <td style="font-weight: 600;">Total</td>
+                  <td class="right"></td>
+                  <td class="right down" style="font-weight: 600;">-$1,225.00</td>
+                  <td class="right"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <!-- Daily PnL Calendar -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="pair-title">Daily PnL Calendar</span>
+            <div class="widget-controls">
+              <div class="cal-nav-controls">
+                <span class="cal-nav-btn">‹</span>
+                <span>June 2026</span>
+                <span class="cal-nav-btn">›</span>
+              </div>
+            </div>
+          </div>
+          <div class="pnl-calendar">
+            <div class="cal-header">
+              <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+            <div class="cal-grid">
+              <!-- Week 1: Starts on Monday (June 1st 2026 is a Monday) -->
+              <div class="cal-cell empty"></div>
+              <div class="cal-cell profit"><span class="date">1</span><span class="pnl">+$1,240</span></div>
+              <div class="cal-cell profit"><span class="date">2</span><span class="pnl">+$450</span></div>
+              <div class="cal-cell loss"><span class="date">3</span><span class="pnl">-$890</span></div>
+              <div class="cal-cell profit"><span class="date">4</span><span class="pnl">+$2,100</span></div>
+              <div class="cal-cell profit"><span class="date">5</span><span class="pnl">+$6,400</span></div>
+              <div class="cal-cell neutral"><span class="date">6</span><span class="pnl">$0</span></div>
+              
+              <!-- Week 2 -->
+              <div class="cal-cell neutral"><span class="date">7</span><span class="pnl">$0</span></div>
+              <div class="cal-cell loss"><span class="date">8</span><span class="pnl">-$2,100</span></div>
+              <div class="cal-cell profit"><span class="date">9</span><span class="pnl">+$800</span></div>
+              <div class="cal-cell profit"><span class="date">10</span><span class="pnl">+$1,150</span></div>
+              <div class="cal-cell loss"><span class="date">11</span><span class="pnl">-$4,300</span></div>
+              <div class="cal-cell profit"><span class="date">12</span><span class="pnl">+$3,200</span></div>
+              <div class="cal-cell neutral"><span class="date">13</span><span class="pnl">$0</span></div>
+              
+              <!-- Week 3 (Current week) -->
+              <div class="cal-cell neutral"><span class="date">14</span><span class="pnl">$0</span></div>
+              <div class="cal-cell profit today"><span class="date">15</span><span class="pnl">+$1,120</span></div>
+              <div class="cal-cell"><span class="date">16</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">17</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">18</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">19</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">20</span><span class="pnl"></span></div>
+              
+              <!-- Week 4 -->
+              <div class="cal-cell"><span class="date">21</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">22</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">23</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">24</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">25</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">26</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">27</span><span class="pnl"></span></div>
+              
+              <!-- Week 5 -->
+              <div class="cal-cell"><span class="date">28</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">29</span><span class="pnl"></span></div>
+              <div class="cal-cell"><span class="date">30</span><span class="pnl"></span></div>
+              <div class="cal-cell empty"></div>
+              <div class="cal-cell empty"></div>
+              <div class="cal-cell empty"></div>
+              <div class="cal-cell empty"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ========================================== -->
+      <!-- Spot Exchange Tab -->
+      <!-- ========================================== -->
+      <div class="tab-pane" id="pane-spot">
+        <div class="widget portfolio-hero" style="min-height: 240px;">
+          <div class="hero-metrics">
+            <div class="metric-block">
+              <span class="metric-label">Spot Balance</span>
+              <span class="metric-value">$2,535,630.15</span>
+              <span class="up" style="font-size: 10px; font-weight: 500; margin-top: 2px;">+$15.15 (+0.00%) 24H</span>
+            </div>
+            <div class="metric-block" style="margin-top: auto;">
+              <span class="metric-label">Total Assets Held</span>
+              <span class="metric-value small">4 Assets</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">Largest Holding</span>
+              <span class="metric-value small">USDC (47.3%)</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">30D Trading Volume</span>
+              <span class="metric-value small">$12,400,000.00</span>
+            </div>
+          </div>
+          <div class="hero-chart-area">
+            <div class="chart-overlay-controls">
+              <div class="chart-controls-group">
+                <span class="active">Balance History</span>
+              </div>
+              <div class="chart-controls-group">
+                <span>1D</span><span class="active">1W</span><span>1M</span><span>YTD</span><span>ALL</span>
+              </div>
+            </div>
+            <div id="chart-spot" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- Stablecoin Holdings -->
+          <div class="widget" style="grid-column: span 2;">
+            <div class="widget-header">
+              <span class="pair-title">Stablecoin Holdings</span>
+              <div class="widget-controls"><span class="close">✕</span></div>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Asset</th>
+                  <th class="right">Balance</th>
+                  <th class="right">Oracle Price</th>
+                  <th class="right">USD Value</th>
+                  <th class="right">Allocation</th>
+                  <th class="right">Target Alloc</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>USDC</td>
+                  <td class="right">1,200,000.00</td>
+                  <td class="right">$1.0000</td>
+                  <td class="right">$1,200,000.00</td>
+                  <td class="right">47.3%</td>
+                  <td class="right">50.0%</td>
+                </tr>
+                <tr>
+                  <td>USDT</td>
+                  <td class="right">800,000.00</td>
+                  <td class="right">$1.0002</td>
+                  <td class="right">$800,160.00</td>
+                  <td class="right">31.5%</td>
+                  <td class="right">30.0%</td>
+                </tr>
+                <tr>
+                  <td>EURC</td>
+                  <td class="right">€300,000.00</td>
+                  <td class="right">$1.0852</td>
+                  <td class="right">$325,560.00</td>
+                  <td class="right">12.8%</td>
+                  <td class="right">10.0%</td>
+                </tr>
+                <tr>
+                  <td>USDe</td>
+                  <td class="right">210,000.00</td>
+                  <td class="right">$0.9995</td>
+                  <td class="right">$209,895.00</td>
+                  <td class="right">8.4%</td>
+                  <td class="right">10.0%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Peg Health Monitor -->
+          <div class="widget">
+            <div class="widget-header">
+              <span class="pair-title">Peg Health Monitor</span>
+            </div>
+            <div style="padding: 8px; display: flex; flex-direction: column; gap: 10px;">
+              <div class="peg-row">
+                <span class="peg-asset">USDC</span>
+                <span class="peg-price">$1.0000</span>
+                <span class="peg-indicator on-peg">ON PEG</span>
+              </div>
+              <div class="peg-row">
+                <span class="peg-asset">USDT</span>
+                <span class="peg-price">$1.0002</span>
+                <span class="peg-indicator on-peg">ON PEG</span>
+              </div>
+              <div class="peg-row">
+                <span class="peg-asset">EURC</span>
+                <span class="peg-price">€1.0000</span>
+                <span class="peg-indicator on-peg">ON PEG</span>
+              </div>
+              <div class="peg-row">
+                <span class="peg-asset">USDe</span>
+                <span class="peg-price">$0.9995</span>
+                <span class="peg-indicator minor-deviate">-0.05%</span>
+              </div>
+              <span style="font-size: 9px; color: var(--text-dim); margin-top: 4px;">Deviation thresholds: ±0.10% minor · ±0.50% warning · ±1.00% critical</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="pair-title">Recent Transactions</span>
+            <div class="widget-controls"><span>View All</span></div>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Details</th>
+                <th class="right">Amount</th>
+                <th class="right">Time</th>
+                <th class="right">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="tx-badge swap">SWAP</span></td>
+                <td>USDT → USDC</td>
+                <td class="right">50,000.00</td>
+                <td class="right">Jun 15, 10:42</td>
+                <td class="right"><span class="tx-status confirmed">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><span class="tx-badge deposit">DEPOSIT</span></td>
+                <td>USDC via Ethereum</td>
+                <td class="right">200,000.00</td>
+                <td class="right">Jun 14, 16:20</td>
+                <td class="right"><span class="tx-status confirmed">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><span class="tx-badge swap">SWAP</span></td>
+                <td>USDC → EURC</td>
+                <td class="right">100,000.00</td>
+                <td class="right">Jun 13, 08:55</td>
+                <td class="right"><span class="tx-status confirmed">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><span class="tx-badge withdraw">WITHDRAW</span></td>
+                <td>USDT to external</td>
+                <td class="right">25,000.00</td>
+                <td class="right">Jun 12, 14:30</td>
+                <td class="right"><span class="tx-status confirmed">Confirmed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- Earn Tab -->
+      <!-- ========================================== -->
+      <div class="tab-pane" id="pane-earn">
+        <div class="widget portfolio-hero" style="min-height: 240px;">
+          <div class="hero-metrics">
+            <div class="metric-block">
+              <span class="metric-label">Total Deposited</span>
+              <span class="metric-value">$676,168.04</span>
+            </div>
+            <div class="metric-block" style="margin-top: auto;">
+              <span class="metric-label">Average APY</span>
+              <span class="metric-value small up">8.42%</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">Pending Rewards</span>
+              <span class="metric-value small up">+$1,247.80</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">30D Earnings</span>
+              <span class="metric-value small up">+$4,612.50</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">Lifetime Yield Earned</span>
+              <span class="metric-value small up">+$42,105.00</span>
+            </div>
+          </div>
+          <div class="hero-chart-area">
+            <div class="chart-overlay-controls">
+              <div class="chart-controls-group">
+                <span class="active">Cumulative Yield</span>
+              </div>
+              <div class="chart-controls-group">
+                <span>1D</span><span class="active">1W</span><span>1M</span><span>YTD</span><span>ALL</span>
+              </div>
+            </div>
+            <div id="chart-earn" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="widget-header">
+            <span class="pair-title">Active Earn Strategies</span>
+            <div class="widget-controls"><span class="close">✕</span></div>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Strategy</th>
+                <th>Asset</th>
+                <th class="right">Current APY</th>
+                <th class="right">30D Avg</th>
+                <th class="right">Deposited</th>
+                <th class="right">Earned to Date</th>
+                <th class="right">Projected 1Y</th>
+                <th>Risk</th>
+                <th>Lock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>USDC Delta Neutral Base</td>
+                <td>USDC</td>
+                <td class="right up">12.5%</td>
+                <td class="right">11.8%</td>
+                <td class="right">$400,000.00</td>
+                <td class="right up">+$28,400.00</td>
+                <td class="right up">+$50,000.00</td>
+                <td><span class="risk-badge medium">Medium</span></td>
+                <td>Flexible</td>
+              </tr>
+              <tr>
+                <td>EURC Institutional Staking</td>
+                <td>EURC</td>
+                <td class="right up">4.2%</td>
+                <td class="right">4.1%</td>
+                <td class="right">€150,000.00</td>
+                <td class="right up">+€3,150.00</td>
+                <td class="right up">+€6,300.00</td>
+                <td><span class="risk-badge low">Low</span></td>
+                <td>30 days</td>
+              </tr>
+              <tr>
+                <td>USDe Liquidity Provision</td>
+                <td>USDe</td>
+                <td class="right up">15.1%</td>
+                <td class="right">14.8%</td>
+                <td class="right">$113,388.04</td>
+                <td class="right up">+$10,555.00</td>
+                <td class="right up">+$17,121.59</td>
+                <td><span class="risk-badge high">High</span></td>
+                <td>Flexible</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="table-footer-note">
+            Yields are variable and based on 30-day rolling average. Sources include borrower interest, trading fees, and protocol incentives.
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- Prediction Markets Tab -->
+      <!-- ========================================== -->
+      <div class="tab-pane" id="pane-predictions">
+        <!-- Hero summary -->
+        <div class="widget portfolio-hero" style="min-height: 200px;">
+          <div class="hero-metrics">
+            <div class="metric-block">
+              <span class="metric-label">Capital Deployed</span>
+              <span class="metric-value">$137,450.41</span>
+            </div>
+            <div class="metric-block" style="margin-top: auto;">
+              <span class="metric-label">Unrealized PnL</span>
+              <span class="metric-value small up">+$11,591.60</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">Realized PnL (All-Time)</span>
+              <span class="metric-value small up">+$34,200.00</span>
+            </div>
+          </div>
+          <div class="hero-chart-area">
+            <div class="chart-overlay-controls">
+              <div class="chart-controls-group">
+                <span class="active">Portfolio Value</span>
+              </div>
+              <div class="chart-controls-group">
+                <span>1D</span><span class="active">1W</span><span>1M</span><span>YTD</span><span>ALL</span>
+              </div>
+            </div>
+            <div id="chart-predictions" class="chart-container"></div>
+          </div>
+        </div>
+
+        <!-- Open Predictions -->
+        <div class="widget">
+          <div class="widget-header">
+            <span class="pair-title">Open Positions</span>
+            <div class="widget-controls"><span class="close">✕</span></div>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Market</th>
+                <th>Outcome</th>
+                <th class="right">Cost Basis</th>
+                <th class="right">Avg Entry</th>
+                <th class="right">Mkt Prob</th>
+                <th class="right">Shares</th>
+                <th class="right">Current Value</th>
+                <th class="right">Max Payout</th>
+                <th class="right">Unrealized PnL</th>
+                <th class="right">Expiry</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ECB Rate Cut in July 2026</td>
+                <td><span style="color: #fff;">Yes</span></td>
+                <td class="right">$45,000.00</td>
+                <td class="right">45¢</td>
+                <td class="right">62¢</td>
+                <td class="right">100,000</td>
+                <td class="right">$62,000.00</td>
+                <td class="right">$100,000.00</td>
+                <td class="right up">+$17,000.00</td>
+                <td class="right">Jul 17, 2026</td>
+              </tr>
+              <tr>
+                <td>USD/JPY > 155 by EOY</td>
+                <td><span style="color: var(--color-down);">No</span></td>
+                <td class="right">$15,000.00</td>
+                <td class="right">70¢</td>
+                <td class="right">85¢</td>
+                <td class="right">50,000</td>
+                <td class="right">$42,500.00</td>
+                <td class="right">$50,000.00</td>
+                <td class="right up">+$7,500.00</td>
+                <td class="right">Dec 31, 2026</td>
+              </tr>
+              <tr>
+                <td>Non-Farm Payrolls > 200k</td>
+                <td><span style="color: #fff;">Yes</span></td>
+                <td class="right">$77,450.41</td>
+                <td class="right">30¢</td>
+                <td class="right">25¢</td>
+                <td class="right">258,168</td>
+                <td class="right">$64,542.01</td>
+                <td class="right">$258,168.00</td>
+                <td class="right down">-$12,908.40</td>
+                <td class="right">Jul 3, 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="widget">
+            <div class="widget-header">
+              <span class="pair-title">Predictive Accuracy</span>
+            </div>
+            <div style="padding: 8px; display: flex; flex-direction: column; gap: 16px;">
+              <div class="metric-block">
+                <span class="metric-label">Brier Score <span class="tooltip-icon" data-tooltip="Measures forecasting accuracy. 0.0 is perfect, 2.0 is perfectly wrong.">?</span></span>
+                <span class="metric-value medium">0.142</span>
+              </div>
+              <div class="metric-block">
+                <span class="metric-label">Prediction Win Rate</span>
+                <span class="metric-value medium">64.5%</span>
+              </div>
+              <div class="metric-block">
+                <span class="metric-label">Markets Resolved</span>
+                <span class="metric-value medium">42</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget">
+            <div class="widget-header">
+              <span class="pair-title">Recently Resolved</span>
+            </div>
+            <div style="padding: 8px;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Market</th>
+                    <th>Result</th>
+                    <th class="right">Payout</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Fed Rate Hold June 2026</td>
+                    <td><span class="resolve-badge won">WON</span></td>
+                    <td class="right up">+$8,400.00</td>
+                  </tr>
+                  <tr>
+                    <td>EUR/USD > 1.10 by May EOD</td>
+                    <td><span class="resolve-badge won">WON</span></td>
+                    <td class="right up">+$12,500.00</td>
+                  </tr>
+                  <tr>
+                    <td>UK CPI > 3.0% May 2026</td>
+                    <td><span class="resolve-badge lost">LOST</span></td>
+                    <td class="right down">-$3,200.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Ticker -->
+  <footer class="bottom-ticker">
+    <div class="ticker-content">
+      <span class="status online"><span class="dot"></span> Online</span>
+      <span class="tick">🇨🇳 CNY 7.24560</span>
+      <span class="tick">🇨🇦 CAD 1.36420</span>
+      <span class="tick">🇪🇺 EUR 1.08560</span>
+      <span class="tick">🇯🇵 JPY 149.82</span>
+      <span class="tick">🇦🇺 AUD 0.65230</span>
+      <span class="tick">🇭🇰 HKD 7.81240</span>
+      <span class="tick">🇨🇳 CNY 7.24560</span>
+      <span class="tick">🇨🇦 CAD 1.36420</span>
+      <span class="tick">🇪🇺 EUR 1.08560</span>
+      <span class="tick">🇯🇵 JPY 149.82</span>
+      <span class="tick">🇦🇺 AUD 0.65230</span>
+    </div>
+    <div class="ticker-issues">
+      <button class="btn-issues">N 4 Issues ✕</button>
+    </div>
+  </footer>
+
+  <script src="portfolio.js?v=6"></script>
+</body>
+</html>

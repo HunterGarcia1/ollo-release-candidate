@@ -1,0 +1,514 @@
+/* ═══════════════════════════════════════════════════════════════
+   portfolio.css — Extends styles.css (do NOT duplicate base rules)
+   Inherits: bg-app, bg-widget, border-color, text-main/muted/dim,
+             color-up/down, topbar, sidebar, widget, widget-header
+   ═══════════════════════════════════════════════════════════════ */
+
+/* --- Portfolio Grid Layout Override --- */
+.portfolio-layout {
+  grid-template-columns: 220px minmax(0, 1fr) !important;
+  grid-template-rows: 1fr !important;
+  grid-template-areas: "nav portfolio" !important;
+}
+
+/* --- Main Scroll Area --- */
+.portfolio-wrapper {
+  grid-area: portfolio;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 4px;
+  gap: 4px;
+}
+
+/* --- Header Row --- */
+.portfolio-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 8px 8px 0;
+}
+.portfolio-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+/* --- Tab Navigation --- */
+.portfolio-tabs {
+  display: flex;
+  gap: 16px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+.portfolio-tabs span {
+  padding: 8px 0 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  font-size: 11px;
+  transition: color 0.2s;
+}
+.portfolio-tabs span:hover {
+  color: var(--text-main);
+}
+.portfolio-tabs span.active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* --- Tab Panes --- */
+.tab-pane {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+}
+.tab-pane.active {
+  display: flex;
+}
+
+/* --- Hero Card --- */
+.portfolio-hero {
+  display: flex;
+  flex-direction: row;
+  min-height: 260px;
+}
+.hero-metrics {
+  width: 280px;
+  padding: 12px;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.hero-chart-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 0;
+}
+
+/* --- Metric Blocks --- */
+.metric-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.metric-label {
+  font-size: 9px;
+  color: var(--text-dim);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.metric-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  font-family: monospace;
+  letter-spacing: -0.5px;
+}
+.metric-value.medium { font-size: 16px; }
+.metric-value.small { font-size: 12px; }
+
+/* --- Chart Overlay Controls --- */
+.chart-overlay-controls {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.chart-controls-group {
+  display: flex;
+  background: var(--bg-widget);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 2px;
+  pointer-events: auto;
+}
+.chart-controls-group span {
+  font-size: 10px;
+  padding: 3px 6px;
+  cursor: pointer;
+  color: var(--text-dim);
+  font-weight: 600;
+  border-radius: 2px;
+}
+.chart-controls-group span:hover {
+  color: var(--text-main);
+}
+.chart-controls-group span.active {
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+/* --- Chart Container --- */
+.chart-container {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  min-height: 180px;
+}
+/* Hide Lightweight Charts TradingView branding — this is our own data */
+.chart-container a[target="_blank"],
+.chart-container div[style*="position: absolute"] > a {
+  display: none !important;
+}
+
+/* --- Portfolio Grid --- */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 4px;
+}
+
+/* --- Data Table --- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table th {
+  text-align: left;
+  padding: 6px 8px;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border-color);
+  text-transform: uppercase;
+}
+.data-table th.right { text-align: right; }
+.data-table td {
+  padding: 6px 8px;
+  font-size: 11px;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-light);
+  font-variant-numeric: tabular-nums;
+  font-family: monospace;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table td.right { text-align: right; }
+.data-table tfoot td {
+  padding-top: 8px;
+}
+
+/* --- Progress Bar --- */
+.progress-bar-container {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-app);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+/* --- Allocation Bar --- */
+.alloc-bar {
+  width: 100%;
+  height: 4px;
+  display: flex;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+/* --- Activity Feed --- */
+.activity-feed {
+  display: flex;
+  flex-direction: column;
+}
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 11px;
+}
+.activity-item:last-child {
+  border-bottom: none;
+}
+.activity-type {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.08);
+  color: var(--text-muted);
+  min-width: 52px;
+  text-align: center;
+}
+.activity-type.earn { background: var(--color-up-bg); color: var(--color-up); }
+.activity-type.swap { background: rgba(59,130,246,0.15); color: #3b82f6; }
+.activity-type.predict { background: rgba(168,85,247,0.15); color: #a855f7; }
+.activity-desc {
+  flex: 1;
+  color: var(--text-main);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.activity-time {
+  color: var(--text-dim);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* --- Peg Health Monitor --- */
+.peg-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+.peg-asset {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-main);
+  width: 48px;
+}
+.peg-price {
+  font-size: 11px;
+  font-family: monospace;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.peg-indicator {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.peg-indicator.on-peg {
+  background: var(--color-up-bg);
+  color: var(--color-up);
+}
+.peg-indicator.minor-deviate {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+.peg-indicator.warning {
+  background: var(--color-down-bg);
+  color: var(--color-down);
+}
+
+/* --- Transaction Badges --- */
+.tx-badge {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.tx-badge.swap { background: rgba(59,130,246,0.15); color: #3b82f6; }
+.tx-badge.deposit { background: var(--color-up-bg); color: var(--color-up); }
+.tx-badge.withdraw { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+
+.tx-status {
+  font-size: 9px;
+  font-weight: 500;
+}
+.tx-status.confirmed { color: var(--color-up); }
+.tx-status.pending { color: #f59e0b; }
+
+/* --- Risk Tier Badges --- */
+.risk-badge {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.risk-badge.low {
+  background: var(--color-up-bg);
+  color: var(--color-up);
+}
+.risk-badge.medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+.risk-badge.high {
+  background: var(--color-down-bg);
+  color: var(--color-down);
+}
+
+/* --- Resolve Badges (Prediction Markets) --- */
+.resolve-badge {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.resolve-badge.won {
+  background: var(--color-up-bg);
+  color: var(--color-up);
+}
+.resolve-badge.lost {
+  background: var(--color-down-bg);
+  color: var(--color-down);
+}
+
+/* --- Table Footer Note --- */
+.table-footer-note {
+  padding: 8px;
+  font-size: 9px;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border-light);
+  line-height: 1.4;
+}
+
+/* --- PnL Calendar --- */
+.pnl-calendar {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cal-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.cal-nav-btn {
+  cursor: pointer;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  color: var(--text-dim);
+}
+.cal-nav-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.cal-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.cal-header span {
+  text-align: right;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  padding-right: 4px;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.cal-cell {
+  background: var(--bg-app);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  height: 44px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cal-cell.empty {
+  background: transparent;
+  border-color: transparent;
+}
+.cal-cell .date {
+  font-size: 9px;
+  color: var(--text-muted);
+  font-weight: 500;
+  align-self: flex-start;
+}
+.cal-cell .pnl {
+  font-size: 10px;
+  font-weight: 600;
+  font-family: monospace;
+}
+.cal-cell.profit {
+  border-color: rgba(14, 203, 129, 0.2);
+  background: rgba(14, 203, 129, 0.05);
+}
+.cal-cell.profit .pnl {
+  color: var(--color-up);
+}
+.cal-cell.loss {
+  border-color: rgba(246, 70, 93, 0.2);
+  background: rgba(246, 70, 93, 0.05);
+}
+.cal-cell.loss .pnl {
+  color: var(--color-down);
+}
+.cal-cell.neutral .pnl {
+  color: var(--text-dim);
+}
+.cal-cell.today {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- Tooltips --- */
+.tooltip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px dotted var(--text-dim);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-left: 6px;
+  cursor: help;
+  position: relative;
+  vertical-align: middle;
+}
+.tooltip-icon:hover {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+.tooltip-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: var(--bg-raised, #232323);
+  color: var(--text-main);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  font-weight: 400;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  border: 1px solid var(--border-light);
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.tooltip-icon:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-8px);
+}

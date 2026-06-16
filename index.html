@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ollo | Trading Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2">
+  <script src="https://unpkg.com/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="menu-toggle">☰</button>
+      <span class="logo">ollo</span>
+    </div>
+    <div class="topbar-center">
+      <div class="search-bar">
+        <span class="icon">🔍</span>
+        <input type="text" placeholder="Search...">
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button class="icon-btn">✧</button>
+      <button class="icon-btn">+</button>
+      <button class="icon-btn">▤</button>
+      <button class="icon-btn">↻</button>
+      <button class="icon-btn">☼</button>
+      <button class="icon-btn">⚲</button>
+      <button class="btn-signin">• Sign In</button>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-container">
+    
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <ul class="nav-menu">
+        <li class="active"><span class="icon">⊞</span> Dashboard</li>
+        <li><span class="icon">💼</span> User Portfolio</li>
+        <li><span class="icon">📊</span> Analytics</li>
+        <li><span class="icon">👥</span> Community</li>
+        <li><span class="icon">📄</span> Documentation</li>
+      </ul>
+      
+      <div class="sidebar-section">
+        <div class="section-title">Layout <span class="arrow">▾</span></div>
+        <ul class="sub-menu">
+          <li class="collapsible"><span class="arrow">›</span> Favorites</li>
+          <li class="collapsible active"><span class="arrow">▾</span> Default</li>
+          <ul class="nested-menu">
+            <li class="menu-label">EARN</li>
+            <li><span class="icon">💰</span> Passive Yield <span class="star">★</span></li>
+            <li class="menu-label">CONVERT</li>
+            <li class="active"><span class="icon">💱</span> Currency Exchange <span class="star">★</span></li>
+            <li class="menu-label">TRADE</li>
+            <li><span class="icon">📈</span> Perpetual Futures <span class="star">★</span></li>
+            <li><span class="icon">🔮</span> Prediction Markets <span class="star">★</span></li>
+            <li><span class="icon">🔄</span> Currency Swaps <span class="star">★</span></li>
+          </ul>
+          <li class="collapsible"><span class="arrow">›</span> Custom</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="section-title">User Interface Explorer</div>
+        <div class="explorer-card">
+          <span class="label">All</span>
+          <p class="explorer-desc">Shows all curated crypto news articles across every category.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Widget: Markets -->
+      <div class="widget markets-widget">
+        <div class="widget-header">
+          <span class="widget-id">2</span>
+          <div class="widget-controls"><span class="close">✕</span></div>
+        </div>
+        <div class="widget-tabs">
+          <span class="active">All</span>
+          <span>Holdings</span>
+          <span>Favorites</span>
+          <span>Gainers</span>
+          <span class="more">›</span>
+        </div>
+        <div class="search-markets">
+          <input type="text" placeholder="Search Markets">
+          <span class="icon">🔍</span>
+        </div>
+        <div class="markets-list">
+          <!-- Item 1 -->
+          <div class="market-item">
+            <span class="star">☆</span>
+            <div class="pair-info">
+              <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=024" class="token-icon" alt="">
+              <span class="pair">USDT/USDC</span>
+            </div>
+            <div class="sparkline-placeholder down"></div>
+            <div class="price-info">
+              <span class="price">$0.998870</span>
+              <span class="change down">-0.04%</span>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="market-item">
+            <span class="star">☆</span>
+            <div class="pair-info">
+              <img src="https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.svg?v=024" class="token-icon" alt="">
+              <span class="pair">USDS/USDC</span>
+            </div>
+            <div class="sparkline-placeholder down"></div>
+            <div class="price-info">
+              <span class="price">$0.999999</span>
+              <span class="change down">-0.20%</span>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="market-item">
+            <span class="star">☆</span>
+            <div class="pair-info">
+              <img src="https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.svg?v=024" class="token-icon" alt="">
+              <span class="pair">DAI/USDC</span>
+            </div>
+            <div class="sparkline-placeholder up"></div>
+            <div class="price-info">
+              <span class="price">$0.999618</span>
+              <span class="change up">+0.02%</span>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="market-item">
+            <span class="star">☆</span>
+            <div class="pair-info">
+              <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" class="token-icon" alt="">
+              <span class="pair">USDe/USDC</span>
+            </div>
+            <div class="sparkline-placeholder up"></div>
+            <div class="price-info">
+              <span class="price">$0.999324</span>
+              <span class="change up">+0.00%</span>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="market-item active">
+            <span class="star">☆</span>
+            <div class="pair-info">
+              <img src="https://cryptologos.cc/logos/euro-coin-euroc-logo.svg?v=024" class="token-icon" alt="">
+              <span class="pair">EURC/USDC</span>
+            </div>
+            <div class="sparkline-placeholder down"></div>
+            <div class="price-info">
+              <span class="price">$1.1511</span>
+              <span class="change down">-0.35%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Widget: Chart -->
+      <div class="widget chart-widget">
+        <div class="widget-header">
+          <div class="left">
+            <span class="widget-id">2</span>
+            <img src="https://cryptologos.cc/logos/euro-coin-euroc-logo.svg?v=024" class="token-icon" alt="">
+            <span class="pair-title">EURC/USDC</span>
+          </div>
+          <div class="widget-controls"><span class="close">✕</span></div>
+        </div>
+        <div class="chart-top-bar">
+          <div class="timeframes">
+            <span class="active">1D</span><span>1W</span><span>1M</span><span>1Y</span><span>ALL</span>
+          </div>
+        </div>
+        <div class="chart-price-display">
+          <span class="big-price">1.1511</span>
+          <span class="change down">-0.35%</span>
+          <span class="change-val down">-$0.0040</span>
+        </div>
+        <div class="tv-chart" id="tvchart"></div>
+        <div class="chart-stats">
+          <div class="stat"><span class="label">OPEN</span><span class="val">1.1551</span></div>
+          <div class="stat"><span class="label">HIGH</span><span class="val">1.1552</span></div>
+          <div class="stat"><span class="label">LOW</span><span class="val">1.1511</span></div>
+          <div class="stat"><span class="label">CLOSE</span><span class="val down">1.1511</span></div>
+          <div class="stat"><span class="label">FDV</span><span class="val">$435.5M</span></div>
+          <div class="stat"><span class="label">VOL 24HR</span><span class="val">$43.8M</span></div>
+        </div>
+      </div>
+
+      <!-- Widget: News -->
+      <div class="widget news-widget">
+        <div class="widget-tabs">
+          <span class="active">All</span>
+          <span>Stable</span>
+          <span>Macro</span>
+          <span>FX</span>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-meta"><span class="source">2h • CoinDesk</span><span class="tag">STABLE</span></div>
+            <div class="news-title">Tether leads $1.4 billion funding round in Ger...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Widget: Order Entry -->
+      <div class="widget order-entry-widget">
+        <div class="widget-header">
+          <div class="left">
+            <span class="widget-id">2</span>
+            <img src="https://cryptologos.cc/logos/euro-coin-euroc-logo.svg?v=024" class="token-icon" alt="">
+            <span class="pair-title">EURC/USDC</span>
+          </div>
+          <div class="widget-controls">
+            <span class="flip-icon">🔄</span> <span class="flip-text">Flip Pair</span>
+            <span class="close">✕</span>
+          </div>
+        </div>
+        <div class="order-tabs">
+          <span class="active">Market</span>
+          <span>Limit</span>
+        </div>
+        
+        <div class="order-sides-container">
+          <!-- Buy Side -->
+          <div class="order-side">
+            <div class="input-group">
+              <div class="input-header">
+                <label>TOTAL</label>
+              </div>
+              <div class="input-box">
+                <span class="val">0</span>
+                <div class="currency"><img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" class="token-icon" alt=""> USDC</div>
+              </div>
+              <span class="sub-val">$0</span>
+            </div>
+            
+            <div class="conversion-rate">1 USDC = 0.873673 EURC ($1.00)</div>
+            
+            <div class="input-group">
+              <div class="input-header">
+                <label>AMOUNT</label>
+              </div>
+              <div class="input-box">
+                <span class="val placeholder">0</span>
+                <div class="currency"><img src="https://cryptologos.cc/logos/euro-coin-euroc-logo.svg?v=024" class="token-icon" alt=""> EURC</div>
+              </div>
+              <span class="sub-val">$0</span>
+            </div>
+            
+            <div class="slippage-control">
+              <div class="left-slip"><label>MAX SLIPPAGE</label> <span>Auto</span> <span>Set</span></div>
+              <div class="right-slip"><span>≡ Details</span></div>
+            </div>
+            
+            <button class="btn-buy">Buy</button>
+          </div>
+
+          <!-- Spread Center -->
+          <div class="spread-center">
+            <div class="spread-block">
+              <span class="label">BEST BID</span>
+              <span class="val up">1.14277</span>
+            </div>
+            <div class="spread-block center">
+              <span class="label">SPREAD</span>
+              <span class="val">$0.011485</span>
+            </div>
+            <div class="spread-block bottom">
+              <span class="label">BEST ASK</span>
+              <span class="val down">1.15425</span>
+            </div>
+          </div>
+
+          <!-- Sell Side -->
+          <div class="order-side">
+            <div class="input-group">
+              <div class="input-header">
+                <label>TOTAL</label>
+              </div>
+              <div class="input-box">
+                <span class="val">0</span>
+                <div class="currency"><img src="https://cryptologos.cc/logos/euro-coin-euroc-logo.svg?v=024" class="token-icon" alt=""> EURC</div>
+              </div>
+              <span class="sub-val">$0</span>
+            </div>
+            
+            <div class="conversion-rate">1 EURC = 1.148510 USDC ($1.15)</div>
+            
+            <div class="input-group">
+              <div class="input-header">
+                <label>AMOUNT</label>
+              </div>
+              <div class="input-box">
+                <span class="val placeholder">0</span>
+                <div class="currency"><img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" class="token-icon" alt=""> USDC</div>
+              </div>
+              <span class="sub-val">$0</span>
+            </div>
+            
+            <div class="slippage-control">
+              <div class="left-slip"><label>MAX SLIPPAGE</label> <span>Auto</span> <span>Set</span></div>
+              <div class="right-slip"><span>≡ Details</span></div>
+            </div>
+            
+            <button class="btn-sell">Sell</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar">
+      
+      <!-- Widget: Pair Info -->
+      <div class="widget pair-info-widget">
+        <div class="widget-header">
+          <div class="left">
+            <span class="widget-id">2</span>
+            <img src="https://cryptologos.cc/logos/euro-coin-euroc-logo.svg?v=024" class="token-icon" alt="">
+            <span class="pair-title">EURC/USDC</span>
+          </div>
+          <div class="widget-controls"><span class="close">✕</span></div>
+        </div>
+        
+        <div class="right-price-display">
+          <span class="big-price">1.15106</span>
+          <span class="change down">-0.35%</span>
+          <span class="change-val down">-$0.0040</span>
+        </div>
+        
+        <div class="section-block">
+          <div class="block-title">24H HIGH / LOW RANGE</div>
+          <div class="range-bar">
+            <div class="fill" style="width: 100%;"></div>
+            <div class="marker" style="position: absolute; top: -2px; bottom: -2px; width: 4px; background: white; border-radius: 2px; left: 70%;"></div>
+          </div>
+          <div class="range-labels">
+            <div><span class="label">24H Low</span><span class="val down">1.15106</span></div>
+            <div style="text-align: center;"><span class="label">Current</span><span class="val">1.15106</span></div>
+            <div style="text-align: right;"><span class="label">24H High</span><span class="val up">1.15525</span></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="block-title">ORDERBOOK METRICS</div>
+          <div class="ob-metrics">
+            <div><span class="val">1.15095</span><span class="label">Bid</span></div>
+            <div style="text-align: center;"><span class="val up">2.0 bps</span><span class="label">Spread</span></div>
+            <div style="text-align: right;"><span class="val">1.15118</span><span class="label">Ask</span></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="block-title">PAIR PERFORMANCE</div>
+          <div class="perf-grid">
+            <div class="perf-badge down">-0.80% 1W</div>
+            <div class="perf-badge down">-1.62% 1M</div>
+            <div class="perf-badge up">+0.41% 3M</div>
+            <div class="perf-badge down">-1.91% 6M</div>
+            <div class="perf-badge down">-1.51% YTD</div>
+            <div class="perf-badge up">+0.32% 1Y</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="block-title">ASSETS</div>
+          <div class="asset-row">
+            <div class="asset-left">
+              <img src="https://cryptologos.cc/logos/euro-coin-euroc-logo.svg?v=024" class="token-icon" alt="">
+              <span class="asset-name">EURC</span>
+              <span class="asset-desc">Euro Coin • Circle Internet Finan...</span>
+            </div>
+            <span class="details-link">Details</span>
+          </div>
+          <div class="asset-row">
+            <div class="asset-left">
+              <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" class="token-icon" alt="">
+              <span class="asset-name">USDC</span>
+              <span class="asset-desc">USDC • Circle Internet Finan...</span>
+            </div>
+            <span class="details-link">Details</span>
+          </div>
+        </div>
+
+        <div class="section-block" style="border-bottom: none;">
+          <div class="block-title">SEASONALS</div>
+          <div class="seasonals-chart-placeholder" id="seasonals-chart">
+            <!-- D3 or Lightweight chart mock here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Widget: Spot Balance -->
+      <div class="widget balance-widget">
+        <div class="widget-header">
+          <div class="left"></div>
+          <div class="widget-controls"><span class="more">⋮</span> <span class="close">✕</span></div>
+        </div>
+        
+        <div class="balance-section">
+          <div class="block-title">TOTAL SPOT BALANCE</div>
+          <div class="total-balance">$0.00 USD</div>
+          <div class="action-buttons">
+            <button class="btn-outline">Deposit</button>
+            <button class="btn-outline">Withdraw</button>
+          </div>
+        </div>
+        
+        <div class="holdings-section">
+          <div class="block-title">ASSET HOLDINGS</div>
+          <p class="empty-state">Deposit assets to start trading</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Bottom Ticker -->
+  <footer class="bottom-ticker">
+    <div class="ticker-content">
+      <span class="status online"><span class="dot"></span> Online</span>
+      <span class="tick">🇨🇳 CNY 7.24560</span>
+      <span class="tick">🇨🇦 CAD 1.36420</span>
+      <span class="tick">🇪🇺 EUR 1.08560</span>
+      <span class="tick">🇯🇵 JPY 149.82</span>
+      <span class="tick">🇦🇺 AUD 0.65230</span>
+      <span class="tick">🇭🇰 HKD 7.81240</span>
+      <span class="tick">🇨🇳 CNY 7.24560</span>
+      <span class="tick">🇨🇦 CAD 1.36420</span>
+      <span class="tick">🇪🇺 EUR 1.08560</span>
+      <span class="tick">🇯🇵 JPY 149.82</span>
+      <span class="tick">🇦🇺 AUD 0.65230</span>
+    </div>
+    <div class="ticker-issues">
+      <button class="btn-issues">N 4 Issues ✕</button>
+    </div>
+  </footer>
+
+  <script src="app.js?v=2"></script>
+</body>
+</html>
