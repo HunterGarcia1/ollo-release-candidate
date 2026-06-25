@@ -1,0 +1,19 @@
+{
+  "name": "ollo-referral-flow",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ollo waitlist referral modal and private referral dashboard front-end handoff.",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "typescript": "^5.0.0"
+  }
+}

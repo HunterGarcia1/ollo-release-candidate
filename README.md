@@ -1,24 +1,35 @@
-# Ollo User Portfolio (Handoff)
+# Ollo Release Candidate
 
-This repository contains the finalized HTML, CSS, and JavaScript for the **Ollo User Portfolio** experience. It has been structurally and visually refined for immediate integration into the primary front-end architecture.
+This repository collects the current Ollo UI handoff work in one private release-candidate workspace. Each feature area is kept in its own folder so it can be reviewed, replaced, or integrated independently without creating a new repo for every prototype.
 
-## Repository Contents
+## Structure
 
-*   **`portfolio.html`**: The complete markup for all 5 portfolio tabs (Overview, Perpetual Futures, Spot Exchange, Earn, Prediction Markets). The Information Architecture has been restructured to prioritize active risk (Open Positions/Orders) "above the fold."
-*   **`portfolio.css`**: The isolated stylesheet for the portfolio. All custom UI components (such as the lightweight CSS tooltip system) and layout grids are defined here.
-*   **`portfolio.js`**: Contains the initialization logic for the Lightweight Charts (v4) and the event listeners for tab switching and dual-pill chart timeframe selectors. 
-*   **`Terminal Styling.ts`**: The core design system token file. All CSS strictly adheres to the colors, typography (`OLLO_FONT_UI`, `OLLO_FONT_MONO`), and spacing rules defined here.
+- `user-portfolio/` - existing Ollo terminal user portfolio prototype and design token reference.
+- `account-settings-referrals/` - static handoff for the terminal account popover, full-page settings views, referral dashboard view, and sign-out modal.
+- `waitlist-referral-dashboard/` - existing waitlist referral dashboard source copied from `HunterGarcia1/Waitlist-Referral-dashboard`.
 
-## Implementation Notes for Engineering
+## Review The Account Settings Handoff
 
-1.  **Componentization**: The structural hierarchy across tabs is highly consistent (`Hero` -> `Metric Blocks` -> `Data Grids`). This should allow for rapid componentization into React/Vue (e.g., `<MetricBlock />`, `<DataGrid />`).
-2.  **Chart Controls**: The chart overlays utilize a flexbox dual-pill layout. Event listeners in `portfolio.js` are currently scoped to independently manage the active state of each `.chart-controls-group`.
-3.  **Earn Chart**: The Earn chart has been explicitly configured as an "up-only" white area chart to accurately reflect cumulative yield, replacing the previous PnL-style histogram.
-4.  **Advanced Metrics**: A CSS-only tooltip system (`.tooltip-icon` and `data-tooltip`) is used to explain advanced metrics (Sharpe Ratio, Brier Score, etc.) without requiring heavy JavaScript dependencies.
+Open `account-settings-referrals/index.html` in a browser. It is a static prototype with hash routes:
 
-## Setup
+- `#/settings/profile`
+- `#/settings/security`
+- `#/referrals`
+- `#/portfolio`
 
-To view the static prototype locally:
-1. Clone the repository.
-2. Open `portfolio.html` in any modern web browser.
-3. Ensure you have an active internet connection to load the Lightweight Charts CDN script.
+The sidebar account row opens a compact account menu with Settings, Referrals, and Sign Out. Settings and Referrals are full-page terminal views styled to match the Ollo portfolio screen rather than center modals.
+
+## Account Settings Scope
+
+The settings prototype intentionally includes only the flows provided in the reference screenshots:
+
+- Profile Settings: display name, email address, time zone, close account.
+- Security Settings: passkey, Google, Apple, authenticator, signed in devices, lock account.
+- Referrals: joined, pending, position, public referral link, copy link, empty referral table.
+- Sign Out: confirmation modal with Cancel and Sign Out actions.
+
+## Integration Notes
+
+- The `account-settings-referrals/` handoff is plain HTML, CSS, and JavaScript so design and interaction can be reviewed without a build step.
+- The styles use Ollo terminal values from the provided design token reference: dark canvas, raised panels, restrained borders, compact rows, and the existing sidebar/header proportions.
+- The static routes and click handlers are intentionally simple. In the production React/Next implementation, map these to the app router, Turnkey account/auth flows, and the existing referrals destination.

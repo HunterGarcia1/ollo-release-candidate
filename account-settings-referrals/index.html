@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ollo Account Handoff</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="terminal-shell">
+      <header class="topbar">
+        <div class="logo" aria-label="ollo">ollo</div>
+        <div class="clock-card">
+          <span class="date">Thu<br />Jun 25</span>
+          <span class="time">12:04</span>
+          <span class="market">CDT&nbsp;&nbsp;UTC-5<br />Markets live</span>
+        </div>
+        <div class="top-spacer"></div>
+        <div class="search-card">
+          <span class="search-icon"></span>
+          <span>Search...</span>
+          <span class="search-plus">+</span>
+        </div>
+        <div class="top-spacer"></div>
+        <div class="top-actions" aria-label="Terminal actions">
+          <button class="icon-button" aria-label="Theme"><span class="ico ico-sun"></span></button>
+          <button class="icon-button" aria-label="Assistant"><span class="ico ico-spark"></span></button>
+          <button class="icon-button wide" aria-label="View tools"><span class="ico ico-frame"></span><span class="ico ico-book"></span></button>
+          <button class="icon-button wide" aria-label="History tools"><span class="ico ico-undo"></span><span class="ico ico-redo"></span></button>
+          <button class="icon-button" aria-label="Notifications"><span class="ico ico-bell"></span></button>
+        </div>
+      </header>
+
+      <aside class="sidebar">
+        <button class="account-trigger" id="accountTrigger" aria-haspopup="menu" aria-expanded="false">
+          <span class="avatar">OD</span>
+          <span class="account-copy">
+            <span class="account-name">Ollo Demo</span>
+            <span class="account-subtitle">Global account</span>
+          </span>
+          <span class="account-chevron">›</span>
+        </button>
+
+        <div class="account-menu" id="accountMenu" role="menu" hidden>
+          <div class="account-menu-header">
+            <span class="avatar">OD</span>
+            <span class="account-name">Ollo Demo</span>
+          </div>
+          <div class="menu-divider"></div>
+          <button class="menu-item" data-route="#/settings/profile" role="menuitem">
+            <span class="nav-icon ico-settings"></span>
+            <span>Settings</span>
+          </button>
+          <button class="menu-item" data-route="#/referrals" role="menuitem">
+            <span class="nav-icon ico-referrals"></span>
+            <span>Referrals</span>
+          </button>
+          <div class="menu-divider"></div>
+          <button class="menu-item danger" id="openSignOut" role="menuitem">
+            <span class="nav-icon ico-signout"></span>
+            <span>Sign out</span>
+          </button>
+        </div>
+
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a class="nav-row" href="#/portfolio" data-nav="portfolio"><span class="nav-icon ico-portfolio"></span><span>User portfolio</span></a>
+          <a class="nav-row" href="#/settings/profile" data-nav="settings"><span class="nav-icon ico-settings"></span><span>Settings</span></a>
+          <a class="nav-row" href="#/referrals" data-nav="referrals"><span class="nav-icon ico-referrals"></span><span>Referrals</span></a>
+          <div class="sidebar-rule"></div>
+          <div class="nav-row muted"><span class="nav-icon ico-agent"></span><span>Agent</span></div>
+          <div class="nav-row muted"><span class="nav-icon ico-dashboard"></span><span>Dashboard</span></div>
+          <div class="nav-row muted"><span class="nav-icon ico-analytics"></span><span>Analytics</span></div>
+          <div class="nav-row muted"><span class="nav-icon ico-community"></span><span>Community</span></div>
+          <div class="nav-row muted"><span class="nav-icon ico-docs"></span><span>Documentation</span></div>
+          <div class="sidebar-rule"></div>
+          <div class="layout-label">Layout</div>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <section class="page" id="settingsPage" hidden>
+          <h1 class="page-title">Account Settings</h1>
+          <div class="settings-layout">
+            <aside class="settings-rail" aria-label="Settings sections">
+              <a class="settings-section" href="#/settings/profile" data-section-link="profile">
+                <span class="row-icon ico-user"></span>
+                <span><strong>Profile Settings</strong><span>Display name, email, time zone</span></span>
+              </a>
+              <a class="settings-section" href="#/settings/security" data-section-link="security">
+                <span class="row-icon ico-shield"></span>
+                <span><strong>Security Settings</strong><span>Passkey, providers, devices</span></span>
+              </a>
+            </aside>
+
+            <section class="settings-panel">
+              <div class="settings-view" id="profileView" hidden>
+                <div class="panel-heading">Profile Settings</div>
+                <button class="setting-row">
+                  <span class="row-icon ico-user"></span>
+                  <span><span class="row-label">Display Name</span><span class="row-value">Steve</span></span>
+                  <span class="chevron">›</span>
+                </button>
+                <div class="setting-row static">
+                  <span class="row-icon ico-mail"></span>
+                  <span><span class="row-label">Email Address</span><span class="row-value">steve@ollo.trade</span></span>
+                  <span></span>
+                </div>
+                <button class="setting-row">
+                  <span class="row-icon ico-clock"></span>
+                  <span><span class="row-label">Time Zone</span><span class="row-value">Eastern Time (US & Canada)</span></span>
+                  <span class="chevron">›</span>
+                </button>
+                <button class="setting-row danger-row">
+                  <span class="row-icon ico-close"></span>
+                  <span><span class="row-label">Close Account</span></span>
+                  <span class="chevron">›</span>
+                </button>
+              </div>
+
+              <div class="settings-view" id="securityView" hidden>
+                <div class="panel-heading">Security Settings</div>
+                <button class="setting-row">
+                  <span class="row-icon ico-fingerprint"></span>
+                  <span><span class="row-label">Passkey</span></span>
+                  <span class="chevron">›</span>
+                </button>
+                <button class="setting-row">
+                  <span class="row-icon ico-google"></span>
+                  <span><span class="row-label">Google</span></span>
+                  <span class="chevron">›</span>
+                </button>
+                <div class="setting-row static">
+                  <span class="row-icon ico-apple"></span>
+                  <span><span class="row-label">Apple</span></span>
+                  <button class="setup-button">Set Up</button>
+                </div>
+                <div class="setting-row static">
+                  <span class="row-icon ico-shield"></span>
+                  <span><span class="row-label">Authenticator</span></span>
+                  <button class="setup-button">Set Up</button>
+                </div>
+                <button class="setting-row">
+                  <span class="row-icon ico-devices"></span>
+                  <span><span class="row-label">Signed in Devices</span></span>
+                  <span class="chevron">›</span>
+                </button>
+                <button class="setting-row danger-row">
+                  <span class="row-icon ico-lock"></span>
+                  <span><span class="row-label">Lock Account</span></span>
+                  <span class="chevron">›</span>
+                </button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page" id="referralsPage" hidden>
+          <h1 class="page-title">Referrals</h1>
+          <div class="referrals-grid">
+            <section class="referral-hero">
+              <span class="private-pill">Private dashboard</span>
+              <h2>Referral dashboard</h2>
+              <p>h***@blockfx.trade owns this private view. The code OLLO-6592 is public.</p>
+            </section>
+            <section class="metric-card"><strong>0</strong><span>Joined</span></section>
+            <section class="metric-card"><strong>0</strong><span>Pending</span></section>
+            <section class="metric-card"><strong>6</strong><span>Position</span></section>
+            <section class="link-card">
+              <div class="panel-heading">Public Referral Link</div>
+              <div class="referral-link">
+                <span id="referralLinkText">https://ollo.foundation/?ref=OLLO-6592</span>
+              </div>
+              <button class="copy-link" id="copyReferral">Copy link</button>
+            </section>
+            <section class="referral-table">
+              <div class="table-head">
+                <span>Referral</span>
+                <span>Status</span>
+                <span>Joined</span>
+              </div>
+              <div class="table-empty">No one has used your code yet.</div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page" id="portfolioPage" hidden>
+          <h1 class="page-title">Portfolio</h1>
+          <div class="placeholder-panel">
+            <div class="panel-heading">User portfolio</div>
+            <p>This route stands in for the existing portfolio page.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="modal-backdrop" id="signOutModal" hidden>
+      <section class="signout-modal" role="dialog" aria-modal="true" aria-labelledby="signoutTitle">
+        <div class="modal-body">
+          <h2 id="signoutTitle">Sign out?</h2>
+          <p>You will leave this Ollo session. You can sign back in at any time.</p>
+        </div>
+        <div class="modal-actions">
+          <button class="cancel-button" id="cancelSignOut">Cancel</button>
+          <button class="confirm-button" id="confirmSignOut">Sign out</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
