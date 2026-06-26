@@ -8,7 +8,7 @@ Status: Draft source of truth for engineering implementation
 
 This rulebook defines the visual system every trading-terminal and website page should inherit. The dark theme supplied by product is canonical. The light theme is adjusted to preserve the same hue intent while remaining usable on a light surface.
 
-Fonts are intentionally provisional. Use `Inter` for now until the final UI and code fonts are approved.
+Fonts are intentionally provisional. Use `Inter` for now until the final UI and code fonts are approved. Text sizing is included now because it affects header/sidebar density and should not be left to per-page judgment.
 
 ## Theme Contract
 
@@ -74,6 +74,42 @@ Default radius: `6px`.
 
 Use `6px` for controls and rows, `8px` for panels/cards, `12px` for menus/popovers, and `16px` only for dialogs or prominent pills.
 
+## Typography System
+
+Use Replit's observed type scale as the provisional terminal scale. The font family may change later, but sizes, line heights, and weights should stay stable unless the approved font requires optical adjustment.
+
+### Type Scale
+
+| Token | Size | Line height | Usage |
+| --- | --- | --- | --- |
+| `type.small` | `12px` | `1.5` | Metadata, badges, timestamps, subtle labels |
+| `type.default` | `14px` | `1.6` | Default UI text, sidebar rows, menu items, table chrome |
+| `type.subhead` | `16px` | `1.375` | Panel titles, compact section headings |
+| `type.subheadLarge` | `20px` | `1.4` | Dense page headings, modal titles |
+| `type.header` | `24px` | `1.333` | Major screen headings |
+| `type.headerLarge` | `32px` | `1.25` | Rare marketing or overview headings |
+
+### Font Weights
+
+| Token | Weight | Usage |
+| --- | --- | --- |
+| `weight.regular` | `400` | Normal labels and body text |
+| `weight.medium` | `500` | Active nav, headers, important labels |
+| `weight.bold` | `600` | Strong emphasis and major headings |
+
+### Header And Sidebar Text
+
+| Area | Size | Line height | Weight | Rule |
+| --- | --- | --- | --- | --- |
+| Header label | `14px` | `1.6` | `500` | Workspace name, selected account, primary nav trigger |
+| Header secondary text | `12px` | `1.5` | `400` | Status, metadata, secondary pill text |
+| Sidebar row label | `14px` | `1.6` | `400` | Default navigation row |
+| Sidebar active row label | `14px` | `1.6` | `500` | Current page or selected workspace |
+| Sidebar section label | `12px` | `1.5` | `500` | Optional compact section headers |
+| Sidebar badge | `12px` | `1.5` | `500` | Counts, states, short tags |
+
+Do not reduce sidebar or header labels below `14px` just to fit more text. Truncate labels instead. Use `12px` only for metadata, badges, and secondary context.
+
 ## App Shell
 
 These rules are based on observed Replit public markup/CSS, adapted for a dense trading terminal.
@@ -93,6 +129,8 @@ These rules are based on observed Replit public markup/CSS, adapted for a dense 
 
 Header controls must visually align to the 32px row height. Use 16px icons. Primary actions may use 40px height only when they are not competing with dense market data.
 
+Header text uses `14px / 1.6` at `500` weight for primary labels and `12px / 1.5` at `400` weight for secondary metadata.
+
 ### Left Sidebar
 
 | Token | Value | Rule |
@@ -109,6 +147,8 @@ Header controls must visually align to the 32px row height. Use 16px icons. Prim
 | `shell.sidebar.searchHeight` | `28px` | Compact sidebar search field |
 
 Sidebar rows should stay 32px tall even when active, hovered, or showing trailing actions. Labels truncate; rows do not grow.
+
+Sidebar row text uses `14px / 1.6`. Default rows use `400` weight; active rows use `500`. Section labels and badges use `12px / 1.5` at `500` weight.
 
 ### Menus And Popovers
 
@@ -158,6 +198,9 @@ Observed source patterns:
 | --- | --- |
 | Root spacing scale | `1, 2, 4, 6, 8, 12, 16, 24, 32, 40, 48, 56, 64, 80, 96, 128, 256` |
 | Root radius scale | `1, 2, 4, 6, 8, 12, 16` |
+| Root font sizes | `12, 14, 16, 20, 24, 32` |
+| Root line heights | `1.5, 1.6, 1.375, 1.4, 1.333, 1.25` |
+| Root font weights | `400, 500, 600` |
 | Marketing header horizontal padding | `24px` |
 | Marketing brand/menu gap | `24px` |
 | Marketing menu item gap | `12px` |

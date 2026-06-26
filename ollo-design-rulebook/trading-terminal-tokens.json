@@ -15,6 +15,63 @@
     "ui": { "$type": "fontFamily", "$value": "Inter" },
     "code": { "$type": "fontFamily", "$value": "JetBrains Mono" }
   },
+  "typography": {
+    "fontSize": {
+      "small": { "$type": "dimension", "$value": "12px" },
+      "default": { "$type": "dimension", "$value": "14px" },
+      "subhead": { "$type": "dimension", "$value": "16px" },
+      "subheadLarge": { "$type": "dimension", "$value": "20px" },
+      "header": { "$type": "dimension", "$value": "24px" },
+      "headerLarge": { "$type": "dimension", "$value": "32px" }
+    },
+    "lineHeight": {
+      "small": { "$type": "number", "$value": 1.5 },
+      "default": { "$type": "number", "$value": 1.6 },
+      "subhead": { "$type": "number", "$value": 1.375 },
+      "subheadLarge": { "$type": "number", "$value": 1.4 },
+      "header": { "$type": "number", "$value": 1.333 },
+      "headerLarge": { "$type": "number", "$value": 1.25 }
+    },
+    "fontWeight": {
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "medium": { "$type": "fontWeight", "$value": 500 },
+      "bold": { "$type": "fontWeight", "$value": 600 }
+    },
+    "header": {
+      "label": {
+        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.default}" },
+        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.default}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.medium}" }
+      },
+      "secondary": {
+        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.small}" },
+        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.small}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.regular}" }
+      }
+    },
+    "sidebar": {
+      "label": {
+        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.default}" },
+        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.default}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.regular}" }
+      },
+      "activeLabel": {
+        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.default}" },
+        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.default}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.medium}" }
+      },
+      "sectionLabel": {
+        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.small}" },
+        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.small}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.medium}" }
+      },
+      "badge": {
+        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.small}" },
+        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.small}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.medium}" }
+      }
+    }
+  },
   "color": {
     "dark": {
       "surface": { "$type": "color", "$value": "#2d2d2b" },
