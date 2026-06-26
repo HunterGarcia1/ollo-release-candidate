@@ -1,0 +1,125 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "name": "Trading Terminal Design Tokens",
+    "version": "0.1",
+    "date": "2026-06-26",
+    "status": "draft",
+    "notes": [
+      "Dark theme values are canonical.",
+      "Light semantic values preserve hue intent while improving contrast on #f9f9f7.",
+      "Font tokens are provisional pending final font approval."
+    ]
+  },
+  "font": {
+    "ui": { "$type": "fontFamily", "$value": "Inter" },
+    "code": { "$type": "fontFamily", "$value": "JetBrains Mono" }
+  },
+  "color": {
+    "dark": {
+      "surface": { "$type": "color", "$value": "#2d2d2b" },
+      "surfaceRaised": { "$type": "color", "$value": "#363632" },
+      "surfaceSunken": { "$type": "color", "$value": "#232321" },
+      "surfaceHover": { "$type": "color", "$value": "#40403c" },
+      "surfaceActive": { "$type": "color", "$value": "#4a4a45" },
+      "borderSubtle": { "$type": "color", "$value": "#3a3a36" },
+      "border": { "$type": "color", "$value": "#4a4a45" },
+      "ink": { "$type": "color", "$value": "#f9f9f7" },
+      "inkMuted": { "$type": "color", "$value": "#c9c9c2" },
+      "inkSubtle": { "$type": "color", "$value": "#8f8f87" },
+      "inkDisabled": { "$type": "color", "$value": "#666660" },
+      "accent": { "$type": "color", "$value": "#ff6600" },
+      "accentText": { "$type": "color", "$value": "#ff8a33" },
+      "positive": { "$type": "color", "$value": "#00ff66" },
+      "negative": { "$type": "color", "$value": "#ff0099" },
+      "info": { "$type": "color", "$value": "#0099ff" }
+    },
+    "light": {
+      "surface": { "$type": "color", "$value": "#f9f9f7" },
+      "surfaceRaised": { "$type": "color", "$value": "#ffffff" },
+      "surfaceSunken": { "$type": "color", "$value": "#efefea" },
+      "surfaceHover": { "$type": "color", "$value": "#eeeeea" },
+      "surfaceActive": { "$type": "color", "$value": "#e5e5de" },
+      "borderSubtle": { "$type": "color", "$value": "#e3e3dc" },
+      "border": { "$type": "color", "$value": "#d4d4cb" },
+      "ink": { "$type": "color", "$value": "#2d2d2b" },
+      "inkMuted": { "$type": "color", "$value": "#676761" },
+      "inkSubtle": { "$type": "color", "$value": "#8a8a82" },
+      "inkDisabled": { "$type": "color", "$value": "#b6b6ad" },
+      "accent": { "$type": "color", "$value": "#ff6600" },
+      "accentText": { "$type": "color", "$value": "#b84700" },
+      "positive": { "$type": "color", "$value": "#007a33" },
+      "negative": { "$type": "color", "$value": "#c20073" },
+      "info": { "$type": "color", "$value": "#006bb8" }
+    }
+  },
+  "space": {
+    "1": { "$type": "dimension", "$value": "1px" },
+    "2": { "$type": "dimension", "$value": "2px" },
+    "4": { "$type": "dimension", "$value": "4px" },
+    "6": { "$type": "dimension", "$value": "6px" },
+    "8": { "$type": "dimension", "$value": "8px" },
+    "12": { "$type": "dimension", "$value": "12px" },
+    "16": { "$type": "dimension", "$value": "16px" },
+    "24": { "$type": "dimension", "$value": "24px" },
+    "32": { "$type": "dimension", "$value": "32px" },
+    "40": { "$type": "dimension", "$value": "40px" },
+    "48": { "$type": "dimension", "$value": "48px" },
+    "56": { "$type": "dimension", "$value": "56px" },
+    "64": { "$type": "dimension", "$value": "64px" },
+    "80": { "$type": "dimension", "$value": "80px" },
+    "96": { "$type": "dimension", "$value": "96px" },
+    "128": { "$type": "dimension", "$value": "128px" },
+    "256": { "$type": "dimension", "$value": "256px" },
+    "default": { "$type": "dimension", "$value": "{space.8}" }
+  },
+  "radius": {
+    "1": { "$type": "dimension", "$value": "1px" },
+    "2": { "$type": "dimension", "$value": "2px" },
+    "4": { "$type": "dimension", "$value": "4px" },
+    "6": { "$type": "dimension", "$value": "6px" },
+    "8": { "$type": "dimension", "$value": "8px" },
+    "12": { "$type": "dimension", "$value": "12px" },
+    "16": { "$type": "dimension", "$value": "16px" },
+    "default": { "$type": "dimension", "$value": "{radius.6}" },
+    "panel": { "$type": "dimension", "$value": "{radius.8}" },
+    "popover": { "$type": "dimension", "$value": "{radius.12}" },
+    "dialog": { "$type": "dimension", "$value": "{radius.16}" }
+  },
+  "shell": {
+    "header": {
+      "height": { "$type": "dimension", "$value": "48px" },
+      "controlHeight": { "$type": "dimension", "$value": "32px" },
+      "titlePillHeight": { "$type": "dimension", "$value": "40px" },
+      "paddingX": { "$type": "dimension", "$value": "12px" },
+      "websitePaddingX": { "$type": "dimension", "$value": "24px" },
+      "gap": { "$type": "dimension", "$value": "8px" },
+      "groupGap": { "$type": "dimension", "$value": "12px" },
+      "brandGap": { "$type": "dimension", "$value": "24px" }
+    },
+    "sidebar": {
+      "width": { "$type": "dimension", "$value": "240px" },
+      "collapsedWidth": { "$type": "dimension", "$value": "32px" },
+      "paddingX": { "$type": "dimension", "$value": "8px" },
+      "paddingY": { "$type": "dimension", "$value": "4px" },
+      "rowHeight": { "$type": "dimension", "$value": "32px" },
+      "rowPaddingX": { "$type": "dimension", "$value": "8px" },
+      "rowGap": { "$type": "dimension", "$value": "8px" },
+      "rowRadius": { "$type": "dimension", "$value": "6px" },
+      "iconSize": { "$type": "dimension", "$value": "16px" },
+      "searchHeight": { "$type": "dimension", "$value": "28px" }
+    },
+    "menu": {
+      "itemHeight": { "$type": "dimension", "$value": "32px" },
+      "itemPaddingXCompact": { "$type": "dimension", "$value": "6px" },
+      "itemPaddingX": { "$type": "dimension", "$value": "8px" },
+      "itemGapCompact": { "$type": "dimension", "$value": "6px" },
+      "itemGap": { "$type": "dimension", "$value": "8px" },
+      "paddingCompact": { "$type": "dimension", "$value": "4px" },
+      "padding": { "$type": "dimension", "$value": "8px" },
+      "megaPaddingX": { "$type": "dimension", "$value": "24px" },
+      "megaPaddingY": { "$type": "dimension", "$value": "16px" },
+      "megaGap": { "$type": "dimension", "$value": "32px" }
+    }
+  }
+}

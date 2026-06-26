@@ -1,0 +1,160 @@
+:root {
+  color-scheme: dark light;
+
+  --font-ui: "Inter", system-ui, sans-serif;
+  --font-code: "JetBrains Mono", ui-monospace, monospace;
+
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-128: 128px;
+  --space-256: 256px;
+  --space-default: var(--space-8);
+
+  --radius-1: 1px;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-default: var(--radius-6);
+  --radius-panel: var(--radius-8);
+  --radius-popover: var(--radius-12);
+  --radius-dialog: var(--radius-16);
+
+  --shell-header-height: 48px;
+  --shell-header-control-height: 32px;
+  --shell-header-title-pill-height: 40px;
+  --shell-header-padding-x: var(--space-12);
+  --shell-header-website-padding-x: var(--space-24);
+  --shell-header-gap: var(--space-8);
+  --shell-header-group-gap: var(--space-12);
+  --shell-header-brand-gap: var(--space-24);
+
+  --shell-sidebar-width: 240px;
+  --shell-sidebar-collapsed-width: 32px;
+  --shell-sidebar-padding-x: var(--space-8);
+  --shell-sidebar-padding-y: var(--space-4);
+  --shell-sidebar-row-height: 32px;
+  --shell-sidebar-row-padding-x: var(--space-8);
+  --shell-sidebar-row-gap: var(--space-8);
+  --shell-sidebar-row-radius: var(--radius-6);
+  --shell-sidebar-icon-size: 16px;
+  --shell-sidebar-search-height: 28px;
+
+  --menu-item-height: 32px;
+  --menu-item-padding-x-compact: var(--space-6);
+  --menu-item-padding-x: var(--space-8);
+  --menu-item-gap-compact: var(--space-6);
+  --menu-item-gap: var(--space-8);
+  --menu-padding-compact: var(--space-4);
+  --menu-padding: var(--space-8);
+  --menu-mega-padding-x: var(--space-24);
+  --menu-mega-padding-y: var(--space-16);
+  --menu-mega-gap: var(--space-32);
+}
+
+[data-theme="dark"] {
+  --color-surface: #2d2d2b;
+  --color-surface-raised: #363632;
+  --color-surface-sunken: #232321;
+  --color-surface-hover: #40403c;
+  --color-surface-active: #4a4a45;
+  --color-border-subtle: #3a3a36;
+  --color-border: #4a4a45;
+  --color-ink: #f9f9f7;
+  --color-ink-muted: #c9c9c2;
+  --color-ink-subtle: #8f8f87;
+  --color-ink-disabled: #666660;
+  --color-accent: #ff6600;
+  --color-accent-text: #ff8a33;
+  --color-positive: #00ff66;
+  --color-negative: #ff0099;
+  --color-info: #0099ff;
+}
+
+[data-theme="light"] {
+  --color-surface: #f9f9f7;
+  --color-surface-raised: #ffffff;
+  --color-surface-sunken: #efefea;
+  --color-surface-hover: #eeeeea;
+  --color-surface-active: #e5e5de;
+  --color-border-subtle: #e3e3dc;
+  --color-border: #d4d4cb;
+  --color-ink: #2d2d2b;
+  --color-ink-muted: #676761;
+  --color-ink-subtle: #8a8a82;
+  --color-ink-disabled: #b6b6ad;
+  --color-accent: #ff6600;
+  --color-accent-text: #b84700;
+  --color-positive: #007a33;
+  --color-negative: #c20073;
+  --color-info: #006bb8;
+}
+
+.app-shell {
+  min-height: 100vh;
+  color: var(--color-ink);
+  background: var(--color-surface);
+  font-family: var(--font-ui);
+}
+
+.app-header {
+  height: var(--shell-header-height);
+  padding-inline: var(--shell-header-padding-x);
+  display: flex;
+  align-items: center;
+  gap: var(--shell-header-gap);
+  background: var(--color-surface-raised);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.left-sidebar {
+  width: var(--shell-sidebar-width);
+  min-width: var(--shell-sidebar-width);
+  background: var(--color-surface-raised);
+  border-right: 1px solid var(--color-border);
+}
+
+.left-sidebar[data-collapsed="true"] {
+  width: var(--shell-sidebar-collapsed-width);
+  min-width: var(--shell-sidebar-collapsed-width);
+}
+
+.sidebar-list {
+  padding: var(--shell-sidebar-padding-y) var(--shell-sidebar-padding-x);
+}
+
+.sidebar-row {
+  height: var(--shell-sidebar-row-height);
+  padding-inline: var(--shell-sidebar-row-padding-x);
+  display: flex;
+  align-items: center;
+  gap: var(--shell-sidebar-row-gap);
+  border-radius: var(--shell-sidebar-row-radius);
+  color: var(--color-ink-muted);
+}
+
+.sidebar-row:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-ink);
+}
+
+.sidebar-row[aria-current="page"],
+.sidebar-row[data-active="true"] {
+  background: var(--color-surface-active);
+  color: var(--color-ink);
+}
