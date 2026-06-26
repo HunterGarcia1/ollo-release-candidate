@@ -87,8 +87,8 @@
       "inkDisabled": { "$type": "color", "$value": "#666660" },
       "accent": { "$type": "color", "$value": "#ff6600" },
       "accentText": { "$type": "color", "$value": "#ff8a33" },
-      "positive": { "$type": "color", "$value": "#00ff66" },
-      "negative": { "$type": "color", "$value": "#ff0099" },
+      "positive": { "$type": "color", "$value": "#10b981" },
+      "negative": { "$type": "color", "$value": "#ff604a" },
       "info": { "$type": "color", "$value": "#0099ff" }
     },
     "light": {
@@ -105,8 +105,8 @@
       "inkDisabled": { "$type": "color", "$value": "#b6b6ad" },
       "accent": { "$type": "color", "$value": "#ff6600" },
       "accentText": { "$type": "color", "$value": "#b84700" },
-      "positive": { "$type": "color", "$value": "#007a33" },
-      "negative": { "$type": "color", "$value": "#c20073" },
+      "positive": { "$type": "color", "$value": "#047857" },
+      "negative": { "$type": "color", "$value": "#b42318" },
       "info": { "$type": "color", "$value": "#006bb8" }
     }
   },

@@ -27,11 +27,11 @@ Use semantic roles in product code. Do not hard-code raw hex values in component
 
 | Role | Dark | Light | Meaning |
 | --- | --- | --- | --- |
-| `positive` | `#00ff66` | `#007a33` | Up moves, profit, bids, successful fills |
-| `negative` | `#ff0099` | `#c20073` | Down moves, loss, asks, destructive market states |
+| `positive` | `#10b981` | `#047857` | Up moves, profit, bids, successful fills |
+| `negative` | `#ff604a` | `#b42318` | Down moves, loss, asks, destructive market states |
 | `info` | `#0099ff` | `#006bb8` | Neutral data highlights, links, selected chart overlays |
 
-The dark semantic colors stay exactly as supplied. The light values are darker siblings of the same hue families so they can be used for small labels and dense tabular UI on `#f9f9f7`.
+The semantic green/red colors are intentionally not neon. Green should read as market emerald, not lime; red should read as loss/ask red, not pink or magenta. The light values are darker siblings of the same hue families so they can be used for small labels and dense tabular UI on `#f9f9f7`.
 
 ### Surface Stack
 

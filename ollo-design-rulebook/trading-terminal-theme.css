@@ -116,8 +116,8 @@
   --color-ink-disabled: #666660;
   --color-accent: #ff6600;
   --color-accent-text: #ff8a33;
-  --color-positive: #00ff66;
-  --color-negative: #ff0099;
+  --color-positive: #10b981;
+  --color-negative: #ff604a;
   --color-info: #0099ff;
 }
 
@@ -135,8 +135,8 @@
   --color-ink-disabled: #b6b6ad;
   --color-accent: #ff6600;
   --color-accent-text: #b84700;
-  --color-positive: #007a33;
-  --color-negative: #c20073;
+  --color-positive: #047857;
+  --color-negative: #b42318;
   --color-info: #006bb8;
 }
 
