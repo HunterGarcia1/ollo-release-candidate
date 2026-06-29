@@ -1,182 +1,203 @@
 {
-  "$schema": "https://design-tokens.github.io/community-group/format/",
   "meta": {
-    "name": "Trading Terminal Design Tokens",
-    "version": "0.1",
-    "date": "2026-06-26",
-    "status": "draft",
-    "notes": [
-      "Dark theme values are canonical.",
-      "Light semantic values preserve hue intent while improving contrast on #f9f9f7.",
-      "Font tokens are provisional pending final font approval."
-    ]
+    "name": "Ollo Terminal Sitewide Theme Tokens",
+    "date": "2026-06-29",
+    "status": "final-local-design-handoff-candidate",
+    "sourceVisuals": {
+      "dark": "ollo-currency-exchange-dark-visual.png",
+      "light": "ollo-currency-exchange-light-visual.png"
+    },
+    "cssHandoff": "trading-terminal-theme.css"
   },
-  "font": {
-    "ui": { "$type": "fontFamily", "$value": "Inter" },
-    "code": { "$type": "fontFamily", "$value": "JetBrains Mono" }
-  },
-  "typography": {
-    "fontSize": {
-      "small": { "$type": "dimension", "$value": "12px" },
-      "default": { "$type": "dimension", "$value": "14px" },
-      "subhead": { "$type": "dimension", "$value": "16px" },
-      "subheadLarge": { "$type": "dimension", "$value": "20px" },
-      "header": { "$type": "dimension", "$value": "24px" },
-      "headerLarge": { "$type": "dimension", "$value": "32px" }
+  "global": {
+    "font": {
+      "ui": "var(--font-inter, Inter), system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+      "mono": "SF Mono, JetBrains Mono, ui-monospace, Menlo, Consolas, monospace"
     },
-    "lineHeight": {
-      "small": { "$type": "number", "$value": 1.5 },
-      "default": { "$type": "number", "$value": 1.6 },
-      "subhead": { "$type": "number", "$value": 1.375 },
-      "subheadLarge": { "$type": "number", "$value": 1.4 },
-      "header": { "$type": "number", "$value": 1.333 },
-      "headerLarge": { "$type": "number", "$value": 1.25 }
+    "spacing": {
+      "1": "1px",
+      "2": "2px",
+      "4": "4px",
+      "6": "6px",
+      "8": "8px",
+      "10": "10px",
+      "12": "12px",
+      "14": "14px",
+      "16": "16px",
+      "20": "20px",
+      "24": "24px",
+      "32": "32px"
     },
-    "fontWeight": {
-      "regular": { "$type": "fontWeight", "$value": 400 },
-      "medium": { "$type": "fontWeight", "$value": 500 },
-      "bold": { "$type": "fontWeight", "$value": 600 }
+    "radius": {
+      "widget": "4px",
+      "control": "4px",
+      "row": "6px",
+      "shellControl": "10px",
+      "modal": "8px",
+      "pill": "999px"
     },
-    "header": {
-      "label": {
-        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.default}" },
-        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.default}" },
-        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.medium}" }
-      },
-      "secondary": {
-        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.small}" },
-        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.small}" },
-        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.regular}" }
-      }
+    "layout": {
+      "shellHeaderHeight": "52px",
+      "shellFooterHeight": "36px",
+      "shellSidebarWidth": "264px",
+      "shellSidebarCollapsedWidth": "52px",
+      "shellLogoCell": "52px",
+      "shellControlHeight": "36px",
+      "sidebarRowHeight": "32px",
+      "widgetHeaderHeight": "32px",
+      "widgetHeaderPaddingX": "8px",
+      "widgetGridGap": "4px",
+      "orderFieldHeight": "76px"
     },
-    "sidebar": {
-      "label": {
-        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.default}" },
-        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.default}" },
-        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.regular}" }
-      },
-      "activeLabel": {
-        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.default}" },
-        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.default}" },
-        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.medium}" }
-      },
-      "sectionLabel": {
-        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.small}" },
-        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.small}" },
-        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.medium}" }
-      },
-      "badge": {
-        "fontSize": { "$type": "dimension", "$value": "{typography.fontSize.small}" },
-        "lineHeight": { "$type": "number", "$value": "{typography.lineHeight.small}" },
-        "fontWeight": { "$type": "fontWeight", "$value": "{typography.fontWeight.medium}" }
-      }
+    "type": {
+      "chromeLabel": { "fontSize": "10px", "lineHeight": "14px", "fontWeight": 500 },
+      "sidebarRow": { "fontSize": "14px", "lineHeight": "20px", "fontWeight": 400, "activeWeight": 500 },
+      "sidebarSection": { "fontSize": "12px", "lineHeight": "18px", "fontWeight": 500 },
+      "widgetHeader": { "fontSize": "11px", "lineHeight": "14px", "fontWeight": 600 },
+      "widgetBody": { "fontSize": "11px", "lineHeight": "16px", "fontWeight": 400 },
+      "sectionLabel": { "fontSize": "9px", "lineHeight": "14px", "fontWeight": 700, "textTransform": "uppercase" },
+      "dataSmall": { "fontSize": "10px", "lineHeight": "14px", "fontWeight": 500 },
+      "dataDefault": { "fontSize": "12px", "lineHeight": "16px", "fontWeight": 600 },
+      "chartPrice": { "fontSize": "30px", "lineHeight": "38px", "fontWeight": 500, "fontFamily": "mono" },
+      "snapshotPrice": { "fontSize": "22px", "lineHeight": "30px", "fontWeight": 700, "fontFamily": "mono" },
+      "orderValue": { "fontSize": "24px", "lineHeight": "32px", "fontWeight": 500, "fontFamily": "mono" }
+    },
+    "controlHeights": {
+      "xs": "16px",
+      "sm": "24px",
+      "md": "28px",
+      "lg": "32px",
+      "modal": "40px"
     }
   },
-  "color": {
+  "themes": {
     "dark": {
-      "surface": { "$type": "color", "$value": "#2d2d2b" },
-      "surfaceRaised": { "$type": "color", "$value": "#363632" },
-      "surfaceSunken": { "$type": "color", "$value": "#232321" },
-      "surfaceHover": { "$type": "color", "$value": "#40403c" },
-      "surfaceActive": { "$type": "color", "$value": "#4a4a45" },
-      "borderSubtle": { "$type": "color", "$value": "#3a3a36" },
-      "border": { "$type": "color", "$value": "#4a4a45" },
-      "ink": { "$type": "color", "$value": "#f9f9f7" },
-      "inkMuted": { "$type": "color", "$value": "#c9c9c2" },
-      "inkSubtle": { "$type": "color", "$value": "#8f8f87" },
-      "inkDisabled": { "$type": "color", "$value": "#666660" },
-      "accent": { "$type": "color", "$value": "#ff6600" },
-      "accentText": { "$type": "color", "$value": "#ff8a33" },
-      "positive": { "$type": "color", "$value": "#10b981" },
-      "negative": { "$type": "color", "$value": "#ff604a" },
-      "info": { "$type": "color", "$value": "#0099ff" }
+      "brand": {
+        "accent": "#ff6600",
+        "surface": "#2d2d2b",
+        "ink": "#f9f9f7",
+        "info": "#0099ff"
+      },
+      "surface": {
+        "terminalCanvas": "#1f201d",
+        "terminalShell": "#20211f",
+        "terminalShellBorder": "#34352f",
+        "widgetBg": "#2d2d2b",
+        "widgetHeaderBg": "#232421",
+        "widgetBorder": "#3e4039",
+        "widgetActiveBorder": "#55584e",
+        "controlBg": "#262723",
+        "controlHoverBg": "#2e302a",
+        "controlActiveBg": "#383a34",
+        "fieldBg": "#242520",
+        "fieldHoverBg": "#2a2b27",
+        "fieldFocusBg": "#30312d",
+        "rowHoverBg": "#343631",
+        "rowSelectedBg": "#3b3d38",
+        "metricBg": "#262723",
+        "modalBg": "#2d2d2b",
+        "modalOverlay": "rgba(0, 0, 0, 0.52)"
+      },
+      "border": {
+        "subtle": "#34352f",
+        "default": "#3e4039",
+        "strong": "#55584e"
+      },
+      "text": {
+        "primary": "#f9f9f7",
+        "secondary": "#c9c9c2",
+        "tertiary": "#8f8f87",
+        "disabled": "#666660",
+        "actionInk": "#f9f9f7"
+      },
+      "market": {
+        "positiveText": "#30b364",
+        "positiveChart": "#30b364",
+        "positiveAction": "#147a3f",
+        "positiveActionHover": "#15803d",
+        "positiveSubtle": "rgba(48, 179, 100, 0.12)",
+        "positiveBorder": "rgba(48, 179, 100, 0.42)",
+        "negativeText": "#ff5c5c",
+        "negativeChart": "#ff5c5c",
+        "negativeAction": "#bd1f2d",
+        "negativeActionHover": "#d62839",
+        "negativeSubtle": "rgba(189, 31, 45, 0.14)",
+        "negativeBorder": "rgba(189, 31, 45, 0.50)",
+        "rangeLow": "#bd1f2d",
+        "rangeMid": "#8a8d80",
+        "rangeHigh": "#30b364"
+      },
+      "chart": {
+        "grid": "rgba(249, 249, 247, 0.055)"
+      }
     },
     "light": {
-      "surface": { "$type": "color", "$value": "#f9f9f7" },
-      "surfaceRaised": { "$type": "color", "$value": "#ffffff" },
-      "surfaceSunken": { "$type": "color", "$value": "#efefea" },
-      "surfaceHover": { "$type": "color", "$value": "#eeeeea" },
-      "surfaceActive": { "$type": "color", "$value": "#e5e5de" },
-      "borderSubtle": { "$type": "color", "$value": "#e3e3dc" },
-      "border": { "$type": "color", "$value": "#d4d4cb" },
-      "ink": { "$type": "color", "$value": "#2d2d2b" },
-      "inkMuted": { "$type": "color", "$value": "#676761" },
-      "inkSubtle": { "$type": "color", "$value": "#8a8a82" },
-      "inkDisabled": { "$type": "color", "$value": "#b6b6ad" },
-      "accent": { "$type": "color", "$value": "#ff6600" },
-      "accentText": { "$type": "color", "$value": "#b84700" },
-      "positive": { "$type": "color", "$value": "#047857" },
-      "negative": { "$type": "color", "$value": "#b42318" },
-      "info": { "$type": "color", "$value": "#006bb8" }
+      "brand": {
+        "accent": "#ff6600",
+        "surface": "#f9f9f7",
+        "ink": "#2d2d2b",
+        "info": "#006bb8"
+      },
+      "surface": {
+        "terminalCanvas": "#e9eae2",
+        "terminalShell": "#e3e4dc",
+        "terminalShellBorder": "#d3d5ca",
+        "widgetBg": "#f9f9f7",
+        "widgetHeaderBg": "#f0f1eb",
+        "widgetBorder": "#d4d6cb",
+        "widgetActiveBorder": "#aeb2a4",
+        "controlBg": "#f3f4ee",
+        "controlHoverBg": "#ecede5",
+        "controlActiveBg": "#e1e3d8",
+        "fieldBg": "#ffffff",
+        "fieldHoverBg": "#f7f8f2",
+        "fieldFocusBg": "#f2f4ec",
+        "rowHoverBg": "#f0f1eb",
+        "rowSelectedBg": "#e4e6dc",
+        "metricBg": "#f3f4ee",
+        "modalBg": "#f9f9f7",
+        "modalOverlay": "rgba(45, 45, 43, 0.34)"
+      },
+      "border": {
+        "subtle": "#e1e3d8",
+        "default": "#d4d6cb",
+        "strong": "#aeb2a4"
+      },
+      "text": {
+        "primary": "#2d2d2b",
+        "secondary": "#5c5d56",
+        "tertiary": "#6f7168",
+        "disabled": "#9a9c93",
+        "actionInk": "#f9f9f7"
+      },
+      "market": {
+        "positiveText": "#15803d",
+        "positiveChart": "#30b364",
+        "positiveAction": "#147a3f",
+        "positiveActionHover": "#15803d",
+        "positiveSubtle": "rgba(21, 128, 61, 0.10)",
+        "positiveBorder": "rgba(21, 128, 61, 0.36)",
+        "negativeText": "#c1121f",
+        "negativeChart": "#d62839",
+        "negativeAction": "#bd1f2d",
+        "negativeActionHover": "#d62839",
+        "negativeSubtle": "rgba(189, 31, 45, 0.10)",
+        "negativeBorder": "rgba(189, 31, 45, 0.38)",
+        "rangeLow": "#bd1f2d",
+        "rangeMid": "#a5a79d",
+        "rangeHigh": "#30b364"
+      },
+      "chart": {
+        "grid": "rgba(45, 45, 43, 0.045)"
+      }
     }
   },
-  "space": {
-    "1": { "$type": "dimension", "$value": "1px" },
-    "2": { "$type": "dimension", "$value": "2px" },
-    "4": { "$type": "dimension", "$value": "4px" },
-    "6": { "$type": "dimension", "$value": "6px" },
-    "8": { "$type": "dimension", "$value": "8px" },
-    "12": { "$type": "dimension", "$value": "12px" },
-    "16": { "$type": "dimension", "$value": "16px" },
-    "24": { "$type": "dimension", "$value": "24px" },
-    "32": { "$type": "dimension", "$value": "32px" },
-    "40": { "$type": "dimension", "$value": "40px" },
-    "48": { "$type": "dimension", "$value": "48px" },
-    "56": { "$type": "dimension", "$value": "56px" },
-    "64": { "$type": "dimension", "$value": "64px" },
-    "80": { "$type": "dimension", "$value": "80px" },
-    "96": { "$type": "dimension", "$value": "96px" },
-    "128": { "$type": "dimension", "$value": "128px" },
-    "256": { "$type": "dimension", "$value": "256px" },
-    "default": { "$type": "dimension", "$value": "{space.8}" }
-  },
-  "radius": {
-    "1": { "$type": "dimension", "$value": "1px" },
-    "2": { "$type": "dimension", "$value": "2px" },
-    "4": { "$type": "dimension", "$value": "4px" },
-    "6": { "$type": "dimension", "$value": "6px" },
-    "8": { "$type": "dimension", "$value": "8px" },
-    "12": { "$type": "dimension", "$value": "12px" },
-    "16": { "$type": "dimension", "$value": "16px" },
-    "default": { "$type": "dimension", "$value": "{radius.6}" },
-    "panel": { "$type": "dimension", "$value": "{radius.8}" },
-    "popover": { "$type": "dimension", "$value": "{radius.12}" },
-    "dialog": { "$type": "dimension", "$value": "{radius.16}" }
-  },
-  "shell": {
-    "header": {
-      "height": { "$type": "dimension", "$value": "48px" },
-      "controlHeight": { "$type": "dimension", "$value": "32px" },
-      "titlePillHeight": { "$type": "dimension", "$value": "40px" },
-      "paddingX": { "$type": "dimension", "$value": "12px" },
-      "websitePaddingX": { "$type": "dimension", "$value": "24px" },
-      "gap": { "$type": "dimension", "$value": "8px" },
-      "groupGap": { "$type": "dimension", "$value": "12px" },
-      "brandGap": { "$type": "dimension", "$value": "24px" }
-    },
-    "sidebar": {
-      "width": { "$type": "dimension", "$value": "240px" },
-      "collapsedWidth": { "$type": "dimension", "$value": "32px" },
-      "paddingX": { "$type": "dimension", "$value": "8px" },
-      "paddingY": { "$type": "dimension", "$value": "4px" },
-      "rowHeight": { "$type": "dimension", "$value": "32px" },
-      "rowPaddingX": { "$type": "dimension", "$value": "8px" },
-      "rowGap": { "$type": "dimension", "$value": "8px" },
-      "rowRadius": { "$type": "dimension", "$value": "6px" },
-      "iconSize": { "$type": "dimension", "$value": "16px" },
-      "searchHeight": { "$type": "dimension", "$value": "28px" }
-    },
-    "menu": {
-      "itemHeight": { "$type": "dimension", "$value": "32px" },
-      "itemPaddingXCompact": { "$type": "dimension", "$value": "6px" },
-      "itemPaddingX": { "$type": "dimension", "$value": "8px" },
-      "itemGapCompact": { "$type": "dimension", "$value": "6px" },
-      "itemGap": { "$type": "dimension", "$value": "8px" },
-      "paddingCompact": { "$type": "dimension", "$value": "4px" },
-      "padding": { "$type": "dimension", "$value": "8px" },
-      "megaPaddingX": { "$type": "dimension", "$value": "24px" },
-      "megaPaddingY": { "$type": "dimension", "$value": "16px" },
-      "megaGap": { "$type": "dimension", "$value": "32px" }
-    }
-  }
+  "forbiddenTerminalMarketColors": [
+    "#00E8B7",
+    "#EF446C",
+    "#ff604a",
+    "#ff0099",
+    "#EC4899",
+    "#A855F7"
+  ]
 }

@@ -1,226 +1,655 @@
+/*
+ * Ollo Terminal Sitewide Theme Tokens
+ * Date: 2026-06-29
+ * Status: Final local design handoff candidate. Do not push without approval.
+ *
+ * Scope:
+ * - Trading terminal shell
+ * - Widget system
+ * - Currency exchange, perpetual futures, prediction markets, portfolio, swaps,
+ *   account, modals, drawers, popovers, dropdowns, tables, forms, and charts
+ */
+
 :root {
   color-scheme: dark light;
 
-  --font-ui: "Inter", system-ui, sans-serif;
-  --font-code: "JetBrains Mono", ui-monospace, monospace;
+  --ollo-font-ui: var(--font-inter, "Inter"), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ollo-font-mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
 
-  --font-size-small: 12px;
-  --font-size-default: 14px;
-  --font-size-subhead: 16px;
-  --font-size-subhead-large: 20px;
-  --font-size-header: 24px;
-  --font-size-header-large: 32px;
+  --ollo-space-1: 1px;
+  --ollo-space-2: 2px;
+  --ollo-space-4: 4px;
+  --ollo-space-6: 6px;
+  --ollo-space-8: 8px;
+  --ollo-space-10: 10px;
+  --ollo-space-12: 12px;
+  --ollo-space-14: 14px;
+  --ollo-space-16: 16px;
+  --ollo-space-20: 20px;
+  --ollo-space-24: 24px;
+  --ollo-space-32: 32px;
 
-  --line-height-small: 1.5;
-  --line-height-default: 1.6;
-  --line-height-subhead: 1.375;
-  --line-height-subhead-large: 1.4;
-  --line-height-header: 1.333;
-  --line-height-header-large: 1.25;
+  --ollo-radius-widget: 4px;
+  --ollo-radius-control: 4px;
+  --ollo-radius-row: 6px;
+  --ollo-radius-shell-control: 10px;
+  --ollo-radius-modal: 8px;
+  --ollo-radius-pill: 999px;
 
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 600;
+  --ollo-shell-header-height: 52px;
+  --ollo-shell-footer-height: 36px;
+  --ollo-shell-sidebar-width: 264px;
+  --ollo-shell-sidebar-collapsed-width: 52px;
+  --ollo-shell-logo-cell: 52px;
+  --ollo-shell-control-height: 36px;
+  --ollo-sidebar-row-height: 32px;
+  --ollo-sidebar-row-padding-x: 12px;
+  --ollo-sidebar-icon-size: 16px;
 
-  --text-header-label-size: var(--font-size-default);
-  --text-header-label-line-height: var(--line-height-default);
-  --text-header-label-weight: var(--font-weight-medium);
-  --text-header-secondary-size: var(--font-size-small);
-  --text-header-secondary-line-height: var(--line-height-small);
-  --text-header-secondary-weight: var(--font-weight-regular);
-  --text-sidebar-label-size: var(--font-size-default);
-  --text-sidebar-label-line-height: var(--line-height-default);
-  --text-sidebar-label-weight: var(--font-weight-regular);
-  --text-sidebar-active-label-weight: var(--font-weight-medium);
-  --text-sidebar-section-size: var(--font-size-small);
-  --text-sidebar-section-line-height: var(--line-height-small);
-  --text-sidebar-section-weight: var(--font-weight-medium);
-  --text-sidebar-badge-size: var(--font-size-small);
-  --text-sidebar-badge-line-height: var(--line-height-small);
-  --text-sidebar-badge-weight: var(--font-weight-medium);
+  --ollo-widget-header-height: 32px;
+  --ollo-widget-header-padding-x: 8px;
+  --ollo-widget-grid-gap: 4px;
 
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-4: 4px;
-  --space-6: 6px;
-  --space-8: 8px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-24: 24px;
-  --space-32: 32px;
-  --space-40: 40px;
-  --space-48: 48px;
-  --space-56: 56px;
-  --space-64: 64px;
-  --space-80: 80px;
-  --space-96: 96px;
-  --space-128: 128px;
-  --space-256: 256px;
-  --space-default: var(--space-8);
+  --ollo-control-height-xs: 16px;
+  --ollo-control-height-sm: 24px;
+  --ollo-control-height-md: 28px;
+  --ollo-control-height-lg: 32px;
+  --ollo-control-height-modal: 40px;
+  --ollo-order-field-height: 76px;
 
-  --radius-1: 1px;
-  --radius-2: 2px;
-  --radius-4: 4px;
-  --radius-6: 6px;
-  --radius-8: 8px;
-  --radius-12: 12px;
-  --radius-16: 16px;
-  --radius-default: var(--radius-6);
-  --radius-panel: var(--radius-8);
-  --radius-popover: var(--radius-12);
-  --radius-dialog: var(--radius-16);
+  --ollo-text-chrome-label: 10px;
+  --ollo-text-widget-header: 11px;
+  --ollo-text-widget-body: 11px;
+  --ollo-text-section-label: 9px;
+  --ollo-text-data-sm: 10px;
+  --ollo-text-data-md: 12px;
+  --ollo-text-sidebar: 14px;
+  --ollo-text-chart-price: 30px;
+  --ollo-text-snapshot-price: 22px;
+  --ollo-text-order-value: 24px;
 
-  --shell-header-height: 48px;
-  --shell-header-control-height: 32px;
-  --shell-header-title-pill-height: 40px;
-  --shell-header-padding-x: var(--space-12);
-  --shell-header-website-padding-x: var(--space-24);
-  --shell-header-gap: var(--space-8);
-  --shell-header-group-gap: var(--space-12);
-  --shell-header-brand-gap: var(--space-24);
-
-  --shell-sidebar-width: 240px;
-  --shell-sidebar-collapsed-width: 32px;
-  --shell-sidebar-padding-x: var(--space-8);
-  --shell-sidebar-padding-y: var(--space-4);
-  --shell-sidebar-row-height: 32px;
-  --shell-sidebar-row-padding-x: var(--space-8);
-  --shell-sidebar-row-gap: var(--space-8);
-  --shell-sidebar-row-radius: var(--radius-6);
-  --shell-sidebar-icon-size: 16px;
-  --shell-sidebar-search-height: 28px;
-
-  --menu-item-height: 32px;
-  --menu-item-padding-x-compact: var(--space-6);
-  --menu-item-padding-x: var(--space-8);
-  --menu-item-gap-compact: var(--space-6);
-  --menu-item-gap: var(--space-8);
-  --menu-padding-compact: var(--space-4);
-  --menu-padding: var(--space-8);
-  --menu-mega-padding-x: var(--space-24);
-  --menu-mega-padding-y: var(--space-16);
-  --menu-mega-gap: var(--space-32);
+  --ollo-z-header: 50;
+  --ollo-z-sidebar: 45;
+  --ollo-z-popover: 80;
+  --ollo-z-modal: 100;
 }
 
-[data-theme="dark"] {
-  --color-surface: #2d2d2b;
+:root[data-ollo-theme='dark'],
+:root[data-theme='dark'],
+:root:not([data-ollo-theme]):not([data-theme]) {
+  color-scheme: dark;
+
+  --ollo-brand-accent: #ff6600;
+  --ollo-brand-surface: #2d2d2b;
+  --ollo-brand-ink: #f9f9f7;
+  --ollo-info: #0099ff;
+
+  --ollo-terminal-canvas: #1f201d;
+  --ollo-terminal-shell: #20211f;
+  --ollo-terminal-shell-border: #34352f;
+
+  --ollo-widget-bg: #2d2d2b;
+  --ollo-widget-header-bg: #232421;
+  --ollo-widget-border: #3e4039;
+  --ollo-widget-active-border: #55584e;
+
+  --ollo-control-bg: #262723;
+  --ollo-control-hover-bg: #2e302a;
+  --ollo-control-active-bg: #383a34;
+
+  --ollo-field-bg: #242520;
+  --ollo-field-hover-bg: #2a2b27;
+  --ollo-field-focus-bg: #30312d;
+
+  --ollo-row-hover-bg: #343631;
+  --ollo-row-selected-bg: #3b3d38;
+  --ollo-metric-bg: #262723;
+
+  --ollo-border-subtle: #34352f;
+  --ollo-border-default: #3e4039;
+  --ollo-border-strong: #55584e;
+
+  --ollo-text-primary: #f9f9f7;
+  --ollo-text-secondary: #c9c9c2;
+  --ollo-text-tertiary: #8f8f87;
+  --ollo-text-disabled: #666660;
+  --ollo-action-ink: #f9f9f7;
+
+  --ollo-positive-text: #30b364;
+  --ollo-positive-chart: #30b364;
+  --ollo-positive-action: #147a3f;
+  --ollo-positive-action-hover: #15803d;
+  --ollo-positive-subtle: rgba(48, 179, 100, 0.12);
+  --ollo-positive-border: rgba(48, 179, 100, 0.42);
+
+  --ollo-negative-text: #ff5c5c;
+  --ollo-negative-chart: #ff5c5c;
+  --ollo-negative-action: #bd1f2d;
+  --ollo-negative-action-hover: #d62839;
+  --ollo-negative-subtle: rgba(189, 31, 45, 0.14);
+  --ollo-negative-border: rgba(189, 31, 45, 0.50);
+
+  --ollo-range-low: #bd1f2d;
+  --ollo-range-mid: #8a8d80;
+  --ollo-range-high: #30b364;
+
+  --ollo-chart-grid: rgba(249, 249, 247, 0.055);
+  --ollo-modal-bg: #2d2d2b;
+  --ollo-modal-overlay: rgba(0, 0, 0, 0.52);
+  --ollo-widget-shadow: none;
+
+  --color-surface: var(--ollo-brand-surface);
   --color-surface-raised: #363632;
-  --color-surface-sunken: #232321;
-  --color-surface-hover: #40403c;
-  --color-surface-active: #4a4a45;
-  --color-border-subtle: #3a3a36;
-  --color-border: #4a4a45;
-  --color-ink: #f9f9f7;
-  --color-ink-muted: #c9c9c2;
-  --color-ink-subtle: #8f8f87;
-  --color-ink-disabled: #666660;
-  --color-accent: #ff6600;
-  --color-accent-text: #ff8a33;
-  --color-positive: #10b981;
-  --color-negative: #ff604a;
-  --color-info: #0099ff;
+  --color-surface-sunken: #232421;
+  --color-surface-hover: var(--ollo-control-hover-bg);
+  --color-surface-active: var(--ollo-row-selected-bg);
+  --color-border-subtle: var(--ollo-border-subtle);
+  --color-border: var(--ollo-border-default);
+  --color-ink: var(--ollo-text-primary);
+  --color-ink-muted: var(--ollo-text-secondary);
+  --color-ink-subtle: var(--ollo-text-tertiary);
+  --color-ink-disabled: var(--ollo-text-disabled);
+  --color-accent: var(--ollo-brand-accent);
+  --color-positive: var(--ollo-positive-text);
+  --color-negative: var(--ollo-negative-text);
+  --color-info: var(--ollo-info);
 }
 
-[data-theme="light"] {
-  --color-surface: #f9f9f7;
+:root[data-ollo-theme='light'],
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --ollo-brand-accent: #ff6600;
+  --ollo-brand-surface: #f9f9f7;
+  --ollo-brand-ink: #2d2d2b;
+  --ollo-info: #006bb8;
+
+  --ollo-terminal-canvas: #e9eae2;
+  --ollo-terminal-shell: #e3e4dc;
+  --ollo-terminal-shell-border: #d3d5ca;
+
+  --ollo-widget-bg: #f9f9f7;
+  --ollo-widget-header-bg: #f0f1eb;
+  --ollo-widget-border: #d4d6cb;
+  --ollo-widget-active-border: #aeb2a4;
+
+  --ollo-control-bg: #f3f4ee;
+  --ollo-control-hover-bg: #ecede5;
+  --ollo-control-active-bg: #e1e3d8;
+
+  --ollo-field-bg: #ffffff;
+  --ollo-field-hover-bg: #f7f8f2;
+  --ollo-field-focus-bg: #f2f4ec;
+
+  --ollo-row-hover-bg: #f0f1eb;
+  --ollo-row-selected-bg: #e4e6dc;
+  --ollo-metric-bg: #f3f4ee;
+
+  --ollo-border-subtle: #e1e3d8;
+  --ollo-border-default: #d4d6cb;
+  --ollo-border-strong: #aeb2a4;
+
+  --ollo-text-primary: #2d2d2b;
+  --ollo-text-secondary: #5c5d56;
+  --ollo-text-tertiary: #6f7168;
+  --ollo-text-disabled: #9a9c93;
+  --ollo-action-ink: #f9f9f7;
+
+  --ollo-positive-text: #15803d;
+  --ollo-positive-chart: #30b364;
+  --ollo-positive-action: #147a3f;
+  --ollo-positive-action-hover: #15803d;
+  --ollo-positive-subtle: rgba(21, 128, 61, 0.10);
+  --ollo-positive-border: rgba(21, 128, 61, 0.36);
+
+  --ollo-negative-text: #c1121f;
+  --ollo-negative-chart: #d62839;
+  --ollo-negative-action: #bd1f2d;
+  --ollo-negative-action-hover: #d62839;
+  --ollo-negative-subtle: rgba(189, 31, 45, 0.10);
+  --ollo-negative-border: rgba(189, 31, 45, 0.38);
+
+  --ollo-range-low: #bd1f2d;
+  --ollo-range-mid: #a5a79d;
+  --ollo-range-high: #30b364;
+
+  --ollo-chart-grid: rgba(45, 45, 43, 0.045);
+  --ollo-modal-bg: #f9f9f7;
+  --ollo-modal-overlay: rgba(45, 45, 43, 0.34);
+  --ollo-widget-shadow: 0 1px 2px rgba(45, 45, 43, 0.045);
+
+  --color-surface: var(--ollo-brand-surface);
   --color-surface-raised: #ffffff;
-  --color-surface-sunken: #efefea;
-  --color-surface-hover: #eeeeea;
-  --color-surface-active: #e5e5de;
-  --color-border-subtle: #e3e3dc;
-  --color-border: #d4d4cb;
-  --color-ink: #2d2d2b;
-  --color-ink-muted: #676761;
-  --color-ink-subtle: #8a8a82;
-  --color-ink-disabled: #b6b6ad;
-  --color-accent: #ff6600;
-  --color-accent-text: #b84700;
-  --color-positive: #047857;
-  --color-negative: #b42318;
-  --color-info: #006bb8;
+  --color-surface-sunken: var(--ollo-widget-header-bg);
+  --color-surface-hover: var(--ollo-control-hover-bg);
+  --color-surface-active: var(--ollo-row-selected-bg);
+  --color-border-subtle: var(--ollo-border-subtle);
+  --color-border: var(--ollo-border-default);
+  --color-ink: var(--ollo-text-primary);
+  --color-ink-muted: var(--ollo-text-secondary);
+  --color-ink-subtle: var(--ollo-text-tertiary);
+  --color-ink-disabled: var(--ollo-text-disabled);
+  --color-accent: var(--ollo-brand-accent);
+  --color-positive: var(--ollo-positive-text);
+  --color-negative: var(--ollo-negative-text);
+  --color-info: var(--ollo-info);
 }
 
-.app-shell {
-  min-height: 100vh;
-  color: var(--color-ink);
-  background: var(--color-surface);
-  font-family: var(--font-ui);
+.ollo-terminal {
+  --ollo-bg-sidebar: var(--ollo-terminal-shell);
+  --ollo-bg-canvas: var(--ollo-terminal-canvas);
+  --ollo-bg-widget: var(--ollo-widget-bg);
+  --ollo-bg-widget-header: var(--ollo-widget-header-bg);
+  --ollo-bg-control: var(--ollo-control-bg);
+  --ollo-bg-control-hover: var(--ollo-control-hover-bg);
+  --ollo-bg-control-active: var(--ollo-control-active-bg);
+  --ollo-bg-hover: var(--ollo-row-hover-bg);
+  --ollo-bg-active: var(--ollo-row-selected-bg);
+  --ollo-hairline: var(--ollo-border-subtle);
+  --ollo-border: var(--ollo-border-default);
+  --ollo-text-1: var(--ollo-text-primary);
+  --ollo-text-2: var(--ollo-text-secondary);
+  --ollo-text-3: var(--ollo-text-tertiary);
+  --ollo-accent: var(--ollo-brand-accent);
+  --ollo-sage: var(--ollo-positive-text);
+  --ollo-brick: var(--ollo-negative-text);
+
+  background: var(--ollo-terminal-canvas);
+  color: var(--ollo-text-primary);
+  font-family: var(--ollo-font-ui);
+  letter-spacing: 0;
 }
 
-.app-header {
-  height: var(--shell-header-height);
-  padding-inline: var(--shell-header-padding-x);
+.ollo-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: var(--ollo-shell-sidebar-width) minmax(0, 1fr);
+  grid-template-rows: var(--ollo-shell-header-height) minmax(0, 1fr) var(--ollo-shell-footer-height);
+  background: var(--ollo-terminal-canvas);
+  color: var(--ollo-text-primary);
+}
+
+.ollo-shell__header {
+  grid-column: 1 / -1;
+  z-index: var(--ollo-z-header);
+  height: var(--ollo-shell-header-height);
   display: flex;
   align-items: center;
-  gap: var(--shell-header-gap);
-  background: var(--color-surface-raised);
-  border-bottom: 1px solid var(--color-border-subtle);
+  gap: var(--ollo-space-8);
+  padding: 0 var(--ollo-space-12);
+  background: var(--ollo-terminal-shell);
+  border-bottom: 1px solid var(--ollo-terminal-shell-border);
 }
 
-.app-header-label {
-  font-size: var(--text-header-label-size);
-  line-height: var(--text-header-label-line-height);
-  font-weight: var(--text-header-label-weight);
+.ollo-shell__sidebar {
+  z-index: var(--ollo-z-sidebar);
+  min-width: 0;
+  min-height: 0;
+  background: var(--ollo-terminal-shell);
+  border-right: 1px solid var(--ollo-terminal-shell-border);
 }
 
-.app-header-secondary {
-  font-size: var(--text-header-secondary-size);
-  line-height: var(--text-header-secondary-line-height);
-  font-weight: var(--text-header-secondary-weight);
-  color: var(--color-ink-muted);
+.ollo-shell__content {
+  min-width: 0;
+  min-height: 0;
+  background: var(--ollo-terminal-canvas);
 }
 
-.left-sidebar {
-  width: var(--shell-sidebar-width);
-  min-width: var(--shell-sidebar-width);
-  background: var(--color-surface-raised);
-  border-right: 1px solid var(--color-border);
+.ollo-shell__footer {
+  grid-column: 1 / -1;
+  height: var(--ollo-shell-footer-height);
+  background: var(--ollo-terminal-shell);
+  border-top: 1px solid var(--ollo-terminal-shell-border);
 }
 
-.left-sidebar[data-collapsed="true"] {
-  width: var(--shell-sidebar-collapsed-width);
-  min-width: var(--shell-sidebar-collapsed-width);
-}
-
-.sidebar-list {
-  padding: var(--shell-sidebar-padding-y) var(--shell-sidebar-padding-x);
-}
-
-.sidebar-row {
-  height: var(--shell-sidebar-row-height);
-  padding-inline: var(--shell-sidebar-row-padding-x);
+.ollo-sidebar-row {
+  min-height: var(--ollo-sidebar-row-height);
   display: flex;
   align-items: center;
-  gap: var(--shell-sidebar-row-gap);
-  border-radius: var(--shell-sidebar-row-radius);
-  color: var(--color-ink-muted);
-  font-size: var(--text-sidebar-label-size);
-  line-height: var(--text-sidebar-label-line-height);
-  font-weight: var(--text-sidebar-label-weight);
+  gap: var(--ollo-space-8);
+  padding: 0 var(--ollo-sidebar-row-padding-x);
+  border-radius: var(--ollo-radius-row);
+  color: var(--ollo-text-secondary);
+  font-size: var(--ollo-text-sidebar);
+  line-height: 20px;
+  font-weight: 400;
 }
 
-.sidebar-row:hover {
-  background: var(--color-surface-hover);
-  color: var(--color-ink);
+.ollo-sidebar-row:hover {
+  background: var(--ollo-row-hover-bg);
+  color: var(--ollo-text-primary);
 }
 
-.sidebar-row[aria-current="page"],
-.sidebar-row[data-active="true"] {
-  background: var(--color-surface-active);
-  color: var(--color-ink);
-  font-weight: var(--text-sidebar-active-label-weight);
+.ollo-sidebar-row[data-active='true'],
+.ollo-sidebar-row[aria-current='page'] {
+  background: var(--ollo-row-selected-bg);
+  color: var(--ollo-text-primary);
+  font-weight: 500;
 }
 
-.sidebar-section-label {
-  padding: var(--space-6) var(--shell-sidebar-row-padding-x) var(--space-4);
-  color: var(--color-ink-subtle);
-  font-size: var(--text-sidebar-section-size);
-  line-height: var(--text-sidebar-section-line-height);
-  font-weight: var(--text-sidebar-section-weight);
+.ollo-sidebar-section-label {
+  color: var(--ollo-text-tertiary);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
 }
 
-.sidebar-badge {
-  font-size: var(--text-sidebar-badge-size);
-  line-height: var(--text-sidebar-badge-line-height);
-  font-weight: var(--text-sidebar-badge-weight);
+.ollo-grid {
+  display: grid;
+  gap: var(--ollo-widget-grid-gap);
+  padding: var(--ollo-space-2);
+}
+
+.ollo-terminal-widget {
+  background: var(--ollo-widget-bg);
+  border: 1px solid var(--ollo-widget-border);
+  border-radius: var(--ollo-radius-widget);
+  box-shadow: var(--ollo-widget-shadow);
+  overflow: hidden;
+}
+
+.ollo-terminal-widget[data-active='true'],
+.ollo-terminal-widget:focus-within {
+  border-color: var(--ollo-widget-active-border);
+}
+
+.ollo-terminal-widget__header {
+  height: var(--ollo-widget-header-height);
+  padding: 0 var(--ollo-widget-header-padding-x);
+  background: var(--ollo-widget-header-bg);
+  border-bottom: 1px solid var(--ollo-border-subtle);
+  color: var(--ollo-text-primary);
+  font-size: var(--ollo-text-widget-header);
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.ollo-terminal-widget__body {
+  min-width: 0;
+  min-height: 0;
+  background: var(--ollo-widget-bg);
+  color: var(--ollo-text-primary);
+  font-size: var(--ollo-text-widget-body);
+  line-height: 16px;
+}
+
+.ollo-icon-button {
+  min-width: 24px;
+  min-height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--ollo-radius-control);
+  background: transparent;
+  color: var(--ollo-text-tertiary);
+}
+
+.ollo-icon-button:hover {
+  background: var(--ollo-control-hover-bg);
+  border-color: var(--ollo-border-subtle);
+  color: var(--ollo-text-primary);
+}
+
+.ollo-icon-button:disabled {
+  color: var(--ollo-text-disabled);
+  cursor: not-allowed;
+}
+
+.ollo-button {
+  height: var(--ollo-control-height-lg);
+  padding: 0 10px;
+  border-radius: var(--ollo-radius-control);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.ollo-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.ollo-button--secondary {
+  background: var(--ollo-control-bg);
+  border: 1px solid var(--ollo-border-subtle);
+  color: var(--ollo-text-primary);
+}
+
+.ollo-button--secondary:hover:not(:disabled) {
+  background: var(--ollo-control-hover-bg);
+  border-color: var(--ollo-border-default);
+}
+
+.ollo-button--secondary:active:not(:disabled),
+.ollo-button--secondary[data-selected='true'] {
+  background: var(--ollo-control-active-bg);
+  border-color: var(--ollo-border-strong);
+}
+
+.ollo-button--segmented {
+  height: var(--ollo-control-height-sm);
+  background: var(--ollo-control-bg);
+  border: 1px solid var(--ollo-border-subtle);
+  color: var(--ollo-text-secondary);
+}
+
+.ollo-button--segmented[data-selected='true'] {
+  background: var(--ollo-row-selected-bg);
+  border-color: var(--ollo-border-default);
+  color: var(--ollo-text-primary);
+}
+
+.ollo-button--buy {
+  background: var(--ollo-positive-action);
+  border: 0;
+  color: var(--ollo-action-ink);
+}
+
+.ollo-button--buy:hover:not(:disabled) {
+  background: var(--ollo-positive-action-hover);
+}
+
+.ollo-button--sell {
+  background: var(--ollo-negative-action);
+  border: 0;
+  color: var(--ollo-action-ink);
+}
+
+.ollo-button--sell:hover:not(:disabled) {
+  background: var(--ollo-negative-action-hover);
+}
+
+.ollo-text-action {
+  border: 0;
+  background: transparent;
+  color: var(--ollo-text-tertiary);
+  font: inherit;
+  font-weight: 600;
+}
+
+.ollo-text-action:hover {
+  color: var(--ollo-text-primary);
+}
+
+.ollo-field {
+  background: var(--ollo-field-bg);
+  border: 1px solid var(--ollo-border-default);
+  border-radius: var(--ollo-radius-control);
+  color: var(--ollo-text-primary);
+}
+
+.ollo-field:hover {
+  background: var(--ollo-field-hover-bg);
+}
+
+.ollo-field:focus-within {
+  background: var(--ollo-field-focus-bg);
+  border-color: var(--ollo-border-strong);
+}
+
+.ollo-field::placeholder,
+.ollo-field [data-placeholder='true'] {
+  color: var(--ollo-text-tertiary);
+}
+
+.ollo-field[aria-invalid='true'],
+.ollo-field[data-error='true'] {
+  border-color: var(--ollo-negative-border);
+  color: var(--ollo-negative-text);
+}
+
+.ollo-order-field {
+  min-height: var(--ollo-order-field-height);
+  padding: 8px;
+}
+
+.ollo-order-field__label,
+.ollo-section-label {
+  color: var(--ollo-text-tertiary);
+  font-size: var(--ollo-text-section-label);
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.ollo-order-field__value {
+  color: var(--ollo-text-primary);
+  font-family: var(--ollo-font-mono);
+  font-size: var(--ollo-text-order-value);
+  line-height: 32px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.ollo-row:hover {
+  background: var(--ollo-row-hover-bg);
+}
+
+.ollo-row[data-selected='true'] {
+  background: var(--ollo-row-selected-bg);
+}
+
+.ollo-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--ollo-text-primary);
+  font-size: var(--ollo-text-widget-body);
+}
+
+.ollo-table th {
+  color: var(--ollo-text-tertiary);
+  font-size: var(--ollo-text-section-label);
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.ollo-table td {
+  border-top: 1px solid var(--ollo-border-subtle);
+  color: var(--ollo-text-primary);
+  font-family: var(--ollo-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.ollo-metric-tile {
+  background: var(--ollo-metric-bg);
+  border: 1px solid var(--ollo-border-subtle);
+  border-radius: var(--ollo-radius-control);
+}
+
+.ollo-data-value {
+  color: var(--ollo-text-primary);
+  font-family: var(--ollo-font-mono);
+  font-size: var(--ollo-text-data-md);
+  line-height: 16px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.ollo-price--chart {
+  color: var(--ollo-text-primary);
+  font-family: var(--ollo-font-mono);
+  font-size: var(--ollo-text-chart-price);
+  line-height: 38px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.ollo-price--snapshot {
+  color: var(--ollo-text-primary);
+  font-family: var(--ollo-font-mono);
+  font-size: var(--ollo-text-snapshot-price);
+  line-height: 30px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.ollo-chip--positive {
+  background: var(--ollo-positive-subtle);
+  border: 1px solid var(--ollo-positive-border);
+  color: var(--ollo-positive-text);
+}
+
+.ollo-chip--negative {
+  background: var(--ollo-negative-subtle);
+  border: 1px solid var(--ollo-negative-border);
+  color: var(--ollo-negative-text);
+}
+
+.ollo-chart-positive {
+  color: var(--ollo-positive-chart);
+  stroke: var(--ollo-positive-chart);
+}
+
+.ollo-chart-negative {
+  color: var(--ollo-negative-chart);
+  stroke: var(--ollo-negative-chart);
+}
+
+.ollo-range-track {
+  background: linear-gradient(90deg, var(--ollo-range-low), var(--ollo-range-mid) 50%, var(--ollo-range-high));
+}
+
+.ollo-chart-surface {
+  background:
+    linear-gradient(var(--ollo-chart-grid) 1px, transparent 1px) 0 0 / 100% 100px,
+    linear-gradient(90deg, var(--ollo-chart-grid) 1px, transparent 1px) 0 0 / 134px 100%,
+    var(--ollo-widget-bg);
+}
+
+.ollo-modal-panel {
+  background: var(--ollo-modal-bg);
+  border: 1px solid var(--ollo-widget-border);
+  border-radius: var(--ollo-radius-modal);
+}
+
+.ollo-modal-overlay {
+  background: var(--ollo-modal-overlay);
+}
+
+.ollo-focus-ring:focus-visible,
+.ollo-button:focus-visible,
+.ollo-icon-button:focus-visible,
+.ollo-field:focus-within {
+  outline: 2px solid var(--ollo-border-strong);
+  outline-offset: 2px;
+}
+
+.ollo-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ollo-border-strong) transparent;
+}
+
+.ollo-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.ollo-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--ollo-border-strong);
+  border-radius: var(--ollo-radius-pill);
 }
