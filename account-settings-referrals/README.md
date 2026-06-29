@@ -30,6 +30,8 @@ Shareable routes:
 - Left navigation updates active state for portfolio, settings, and referrals.
 - Settings sections are navigable and shareable by hash route.
 - Referral copy button copies the public referral link when browser permissions allow it.
+- `auth-states.html` shows the signed-in and signed-out account row states.
+- `SIGNED_OUT_STATE.md` documents the React implementation contract for auth loading, signed-out, and signed-in states.
 
 ## Content Scope
 
@@ -69,3 +71,4 @@ Referrals:
 - Keep Settings as a full page, not a center modal.
 - Keep Sign out as a confirmation modal.
 - Turnkey-specific actions should wire from the Security Settings rows.
+- If there is no signed-in Turnkey user, use the signed-out account row as a sign-in entry point and do not render Settings, Referrals, or Sign out in the account menu.
