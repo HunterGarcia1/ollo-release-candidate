@@ -1,14 +1,14 @@
 .olloReferralBackdrop {
   --ollo-waitlist-ink: #050505;
-  --ollo-waitlist-panel: #f8f7f2;
-  --ollo-waitlist-panel-soft: #efede6;
+  --ollo-waitlist-panel: #fbfbf6;
+  --ollo-waitlist-panel-soft: #f0f0ea;
   --ollo-waitlist-field: #ffffff;
-  --ollo-waitlist-muted: #77736b;
-  --ollo-waitlist-line: #111111;
-  --ollo-waitlist-line-soft: rgba(17, 17, 17, 0.18);
-  --ollo-waitlist-action: #b7ef3c;
-  --ollo-waitlist-action-soft: rgba(183, 239, 60, 0.42);
-  --ollo-waitlist-mint: #72f3a3;
+  --ollo-waitlist-muted: #6f706a;
+  --ollo-waitlist-line: #050505;
+  --ollo-waitlist-line-soft: rgba(5, 5, 5, 0.14);
+  --ollo-waitlist-action: #76f5a6;
+  --ollo-waitlist-action-soft: rgba(118, 245, 166, 0.34);
+  --ollo-waitlist-mint: #76f5a6;
   --ollo-waitlist-warn: #ffe58f;
   --ollo-waitlist-error: #bd1f2d;
   --ollo-waitlist-font:
@@ -34,7 +34,8 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.58);
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: saturate(0.85);
   color: var(--ollo-waitlist-ink);
   font-family: var(--ollo-waitlist-font);
   letter-spacing: 0;
@@ -42,19 +43,19 @@
 
 .olloReferralModal {
   position: relative;
-  width: min(520px, 100%);
+  width: min(500px, 100%);
   max-height: calc(100dvh - 40px);
   overflow: auto;
   border: 2px solid var(--ollo-waitlist-line);
   border-radius: 0;
   background: var(--ollo-waitlist-panel);
-  padding: 24px;
-  box-shadow: 12px 12px 0 var(--ollo-waitlist-line);
+  padding: 24px 24px 22px;
+  box-shadow: 7px 7px 0 var(--ollo-waitlist-line);
   color: var(--ollo-waitlist-ink);
 }
 
 .olloReferralModal.dashboard {
-  width: min(860px, 100%);
+  width: min(760px, 100%);
 }
 
 .olloReferralClose {
@@ -67,23 +68,23 @@
   place-items: center;
   border: 2px solid var(--ollo-waitlist-line);
   border-radius: 0;
-  background: var(--ollo-waitlist-field);
+  background: transparent;
   color: var(--ollo-waitlist-ink);
   cursor: pointer;
   font: 900 18px / 1 var(--ollo-waitlist-font);
 }
 
 .olloReferralClose:hover {
-  background: var(--ollo-waitlist-panel-soft);
+  background: var(--ollo-waitlist-action);
 }
 
 .olloReferralModal h2 {
-  margin: 0 42px 10px 0;
+  margin: 0 42px 12px 0;
   color: var(--ollo-waitlist-ink);
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 900;
-  line-height: 1.02;
-  letter-spacing: -0.01em;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
 }
 
 .olloReferralMuted {
@@ -120,7 +121,7 @@
   padding: 0 14px;
   outline: none;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .olloReferralModal input::placeholder {
@@ -146,9 +147,8 @@
   padding: 0 18px;
   border: 2px solid var(--ollo-waitlist-line);
   border-radius: 0;
-  background: var(--ollo-waitlist-field);
+  background: var(--ollo-waitlist-panel);
   color: var(--ollo-waitlist-ink);
-  box-shadow: 4px 4px 0 var(--ollo-waitlist-line);
   cursor: pointer;
   font-size: 16px;
   font-weight: 900;
@@ -157,23 +157,26 @@
 }
 
 .olloReferralButton:hover {
-  transform: translate(1px, 1px);
-  box-shadow: 3px 3px 0 var(--ollo-waitlist-line);
+  background: var(--ollo-waitlist-action);
 }
 
 .olloReferralButton.primary {
   background: var(--ollo-waitlist-action);
 }
 
+.olloReferralButton.primary:hover {
+  background: var(--ollo-waitlist-ink);
+  color: var(--ollo-waitlist-panel);
+}
+
 .olloReferralButton.cyan {
-  background: var(--ollo-waitlist-mint);
+  background: var(--ollo-waitlist-panel);
 }
 
 .olloReferralButton.small {
   height: 36px;
   padding: 0 14px;
   font-size: 14px;
-  box-shadow: 3px 3px 0 var(--ollo-waitlist-line);
 }
 
 .olloReferralButton:disabled {
@@ -189,7 +192,7 @@
   align-items: center;
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 2px solid var(--ollo-waitlist-line);
+  border-top: 1px solid var(--ollo-waitlist-line);
 }
 
 .olloReferralReturn p {
@@ -214,7 +217,7 @@
   padding: 4px 10px;
   border: 2px solid var(--ollo-waitlist-line);
   border-radius: 0;
-  background: var(--ollo-waitlist-field);
+  background: var(--ollo-waitlist-action);
   color: var(--ollo-waitlist-ink);
   font-size: 12px;
   font-weight: 900;
@@ -223,8 +226,8 @@
 }
 
 .olloReferralPill.private {
-  background: var(--ollo-waitlist-ink);
-  color: var(--ollo-waitlist-panel);
+  background: var(--ollo-waitlist-action);
+  color: var(--ollo-waitlist-ink);
 }
 
 .olloReferralPill.joined {
@@ -240,24 +243,30 @@
 .olloReferralMetrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin: 22px 0 16px;
+  gap: 0;
+  margin: 22px 0 18px;
+  border-top: 2px solid var(--ollo-waitlist-line);
+  border-bottom: 2px solid var(--ollo-waitlist-line);
 }
 
 .olloReferralMetrics div {
-  min-height: 94px;
-  border: 2px solid var(--ollo-waitlist-line);
-  background: var(--ollo-waitlist-field);
-  padding: 16px;
+  min-height: 88px;
+  border-right: 1px solid var(--ollo-waitlist-line-soft);
+  background: transparent;
+  padding: 15px 16px;
+}
+
+.olloReferralMetrics div:last-child {
+  border-right: 0;
 }
 
 .olloReferralMetrics b {
   display: block;
   color: var(--ollo-waitlist-ink);
-  font-size: 42px;
+  font-size: 46px;
   font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
 }
 
 .olloReferralMetrics span {
@@ -312,7 +321,7 @@
 }
 
 .olloReferralTable th {
-  background: var(--ollo-waitlist-panel-soft);
+  background: var(--ollo-waitlist-panel);
   color: var(--ollo-waitlist-ink);
   font-size: 12px;
   font-weight: 900;
@@ -337,7 +346,7 @@
 
   .olloReferralModal {
     padding: 20px;
-    box-shadow: 8px 8px 0 var(--ollo-waitlist-line);
+    box-shadow: 5px 5px 0 var(--ollo-waitlist-line);
   }
 
   .olloReferralModal h2 {
