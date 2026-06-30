@@ -9,6 +9,21 @@ This repo intentionally does not include the Ollo landing page, hero animation, 
 - `src/OlloReferralFlow.tsx` - React/Next client component for the waitlist modal, returning-user magic link request, and private referral dashboard.
 - `src/ollo-referral-flow.css` - Styles for the modal and dashboard.
 
+## Styling Rulebook
+
+The referral modal should feel like a native extension of the Ollo landing page, not a separate dashboard product.
+
+- Keep the existing centered modal flow and component structure.
+- Use an off-white panel surface: `#f8f7f2`.
+- Use square geometry: no rounded cards, pills, or buttons.
+- Use black outlines and black slab shadows, matching the current waitlist modal.
+- Use lime/green only for primary action and confirmed states.
+- Do not use cyan/blue/purple accent badges for this flow.
+- Keep helper copy soft grey: `#77736b`.
+- Keep dashboard content quiet and tabular: boxed metrics, one public referral link box, one copy action, then referral rows.
+- The referral code is public. Dashboard access remains private via magic link.
+- Do not add social share buttons unless they perform a true native share action.
+
 ## Expected Integration
 
 Import the component and CSS wherever the existing landing page controls the waitlist modal.
