@@ -4,6 +4,8 @@
   --ollo-waitlist-panel-soft: #f0f0ea;
   --ollo-waitlist-field: #ffffff;
   --ollo-waitlist-muted: #6f706a;
+  --ollo-waitlist-body-text: #353530;
+  --ollo-waitlist-placeholder: #8f8d86;
   --ollo-waitlist-line: #050505;
   --ollo-waitlist-line-soft: rgba(5, 5, 5, 0.14);
   --ollo-waitlist-action: #76f5a6;
@@ -39,6 +41,27 @@
   color: var(--ollo-waitlist-ink);
   font-family: var(--ollo-waitlist-font);
   letter-spacing: 0;
+}
+
+:where(.dark, [data-theme="dark"], .bg-bg-dark) .olloReferralBackdrop,
+.olloReferralBackdrop[data-ollo-theme="dark"],
+.olloReferralBackdrop[data-theme="dark"] {
+  --ollo-waitlist-ink: #f8f8ef;
+  --ollo-waitlist-panel: #050505;
+  --ollo-waitlist-panel-soft: #11110f;
+  --ollo-waitlist-field: #0b0b0a;
+  --ollo-waitlist-muted: #b9b9ae;
+  --ollo-waitlist-body-text: #deded5;
+  --ollo-waitlist-placeholder: #8a8a80;
+  --ollo-waitlist-line: #f8f8ef;
+  --ollo-waitlist-line-soft: rgba(248, 248, 239, 0.18);
+  --ollo-waitlist-action: #76f5a6;
+  --ollo-waitlist-action-soft: rgba(118, 245, 166, 0.32);
+  --ollo-waitlist-mint: #76f5a6;
+  --ollo-waitlist-warn: #f0cf62;
+  --ollo-waitlist-error: #ff6a77;
+
+  background: rgba(0, 0, 0, 0.24);
 }
 
 .olloReferralModal {
@@ -125,7 +148,7 @@
 }
 
 .olloReferralModal input::placeholder {
-  color: #8f8d86;
+  color: var(--ollo-waitlist-placeholder);
   opacity: 1;
 }
 
@@ -330,7 +353,7 @@
 }
 
 .olloReferralTable td {
-  color: #353530;
+  color: var(--ollo-waitlist-body-text);
   font-weight: 600;
 }
 
